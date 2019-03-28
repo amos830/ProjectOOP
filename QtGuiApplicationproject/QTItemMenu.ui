@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QTItemMenu</class>
+ <widget class="QDialog" name="QTItemMenu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>651</width>
+    <height>774</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>List Of Equipment(Admin)</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_5">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="Title">
+       <property name="text">
+        <string>List of avalible equipments</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTabWidget" name="tabWidget">
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="statusTip">
+        <string/>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="TentTab">
+        <attribute name="title">
+         <string>Tent</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0">
+            <widget class="QTableView" name="Tent_Table"/>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="StoveTab">
+        <attribute name="title">
+         <string>Stove</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QTableView" name="Stove_Table"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="LanternTab">
+        <attribute name="title">
+         <string>Lantern</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QTableView" name="Lantern_Table"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="Exit">
+     <property name="text">
+      <string>Exit</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>Exit</sender>
+   <signal>clicked()</signal>
+   <receiver>QTItemMenu</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>743</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>4</x>
+     <y>519</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>tabWidget</sender>
+   <signal>currentChanged(int)</signal>
+   <receiver>QTItemMenu</receiver>
+   <slot>updateTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>113</x>
+     <y>46</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>283</x>
+     <y>2</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tent_Table</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>QTItemMenu</receiver>
+   <slot>editConditionTent(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>186</x>
+     <y>196</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>438</x>
+     <y>7</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Stove_Table</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>QTItemMenu</receiver>
+   <slot>editConditionStove(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>190</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>5</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Lantern_Table</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>QTItemMenu</receiver>
+   <slot>editConditionLantern(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>348</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>643</x>
+     <y>28</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>editConditionTent(QModelIndex)</slot>
+  <slot>updateTable()</slot>
+  <slot>editConditionStove(QModelIndex)</slot>
+  <slot>editConditionLantern(QModelIndex)</slot>
+ </slots>
+</ui>
