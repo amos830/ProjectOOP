@@ -1,5 +1,7 @@
 #include "QTLoginWindow.h"
 #include "QtAdminMenu.h"
+#include <QTimer>
+#include <QThread>
 QTLoginWindow::QTLoginWindow(QWidget *parent)
 	: QDialog(parent)
 {
@@ -19,10 +21,7 @@ void QTLoginWindow::reset()
 	ui.PasswordInput->setText("");
 	ui.Error->setText("");
 }
-void QTLoginWindow::exitthankyou()
-{
-	close();
-}
+
 void QTLoginWindow::checkPassword() 
 {
 	std::string username = ui.UserNameInput->text().toStdString();
@@ -51,4 +50,9 @@ ThankYouDialog::ThankYouDialog(QWidget *parent = Q_NULLPTR) {
 	setupUi(this);
 		QFont t_hanks("Comic Sans",15);
 		ThankMessage->setFont(t_hanks);
+		QObject::connect(Exit, SIGNAL(clicked()), this, SLOT(close()));
+}
+void ThankYouDialog::activateTimer() {
+	QTimer::singleShot(5000, this, SLOT(close()));
+	QDialog::exec();
 }

@@ -144,6 +144,7 @@ public:
 
         retranslateUi(QTLoginWindow);
         QObject::connect(ConfirmButton, SIGNAL(clicked()), QTLoginWindow, SLOT(checkPassword()));
+        QObject::connect(Exit, SIGNAL(clicked()), QTLoginWindow, SLOT(reject()));
 
         QMetaObject::connectSlotsByName(QTLoginWindow);
     } // setupUi

@@ -25,4 +25,6 @@ class ThankYouDialog :public QDialog,public Ui::ThankYouDialog
 public:
 	~ThankYouDialog();
 	ThankYouDialog(QWidget * parent);
+public slots:
+	void activateTimer();
 };

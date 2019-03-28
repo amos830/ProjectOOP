@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'ThankYouDialogvnDXDq.ui'
+** Form generated from reading UI file 'ThankYouDialog.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.12.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef THANKYOUDIALOGVNDXDQ_H
-#define THANKYOUDIALOGVNDXDQ_H
+#ifndef UI_THANKYOUDIALOG_H
+#define UI_THANKYOUDIALOG_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -71,7 +71,7 @@ public:
     void retranslateUi(QDialog *ThankYouDialog)
     {
         ThankYouDialog->setWindowTitle(QApplication::translate("ThankYouDialog", "Dialog", nullptr));
-        ThankMessage->setText(QApplication::translate("ThankYouDialog", "TextLabel", nullptr));
+        ThankMessage->setText(QApplication::translate("ThankYouDialog", "Thank you for using the system", nullptr));
         Exit->setText(QApplication::translate("ThankYouDialog", "Exit", nullptr));
     } // retranslateUi
 
@@ -83,4 +83,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // THANKYOUDIALOGVNDXDQ_H
+#endif // UI_THANKYOUDIALOG_H

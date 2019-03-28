@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	//QTLoginWindow Login;
 	//Login.show();
 	//w.show();
-	std::unique_ptr<ThankYouDialog> thank(new ThankYouDialog(nullptr));
-	thank->exec();
+	ThankYouDialog thank(nullptr);
+	QObject::connect(&a, SIGNAL(aboutToQuit()),&thank,SLOT(activateTimer()));
 	return a.exec();
 }

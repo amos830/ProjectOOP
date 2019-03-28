@@ -183,12 +183,28 @@
    <slot>checkPassword()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>221</x>
-     <y>213</y>
+     <x>242</x>
+     <y>252</y>
     </hint>
     <hint type="destinationlabel">
      <x>325</x>
      <y>250</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Exit</sender>
+   <signal>clicked()</signal>
+   <receiver>QTLoginWindow</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>211</x>
+     <y>272</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>76</x>
+     <y>207</y>
     </hint>
    </hints>
   </connection>

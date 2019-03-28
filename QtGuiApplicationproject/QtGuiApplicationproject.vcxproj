@@ -130,6 +130,7 @@
     <QtMoc Include="Project.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="..\..\..\C++\QtGuiApplicationproject\QtGuiApplicationproject\ThankYouDialog.ui" />
     <QtUic Include="ChangeConditionUI.ui" />
     <QtUic Include="ImportequipmentMenu.ui" />
     <QtUic Include="Project.ui" />
