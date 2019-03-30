@@ -5,7 +5,6 @@
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-	Project w;
 	QTLoginWindow Menu;
 	LoanControl* loanControler = new LoanControl();
 	Menu.initialize(loanControler);

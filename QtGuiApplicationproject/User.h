@@ -7,10 +7,11 @@ protected:
 	string userID;
 	string name;
 	string dateOfBirth;
+	string section;
 	string address;
 public:
 	static int NoOfUsers;
-		User(string userID,string name,string dateOfBirth,string address);
+		User(string userID,string name,string section,string dateOfBirth,string address);
 		virtual ~User();
 		string getUserID();
 		string getPassword();
@@ -22,7 +23,7 @@ class Scout
 {
 	string rank;
 public:
-	Scout(string userID, string name, string dateOfBirth, string address,string rank);
+	Scout(string userID, string name,string section,string dateOfBirth, string address,string rank);
 	~Scout();
 	string getRank();
 };
@@ -30,14 +31,14 @@ class RScout
 	:public User
 {
 public:
-	RScout(string userID, string name, string dateOfBirth, string address);
+	RScout(string userID, string name,string section,string dateOfBirth, string address);
 	~RScout();
 };
 class VScout
 	:public User
 {
 public:
-	VScout(string userID, string name, string dateOfBirth, string address);
+	VScout(string userID, string name, string section,string dateOfBirth, string address);
 	~VScout();
 };
 class Scouter
@@ -45,7 +46,7 @@ class Scouter
 {
 	string rank;
 public:
-	Scouter(string userID, string name, string dateOfBirth, string address,string rank);
+	Scouter(string userID, string name,string section,string dateOfBirth, string address,string rank);
 	~Scouter();
 	string getRank();
 };

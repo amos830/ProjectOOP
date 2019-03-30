@@ -8,10 +8,10 @@ class LoanControl;
 class FileHandiler
 {
 public:
-	static void fileRead(Equipment**& List, int& Num, LoanControl* loanControler);//Read default equipment file
-	static void fileRead(string fileLocation, Equipment**& List, int& Num, LoanControl* loanControler);//Read custom equipment file
-	static void fileRead(User**& List, int&Num, LoanControl* loanControler);
-	static void fileRead(string fileLocation, User**& List, int& Num, LoanControl* loanControler);
+	static int fileRead(Equipment**& List, int& Num, LoanControl* loanControler);//Read default equipment file
+	static int fileRead(string fileLocation, Equipment**& List, int& Num, LoanControl* loanControler);//Read custom equipment file
+	static int fileRead(User**& List, int&Num, LoanControl* loanControler);
+	static int fileRead(string fileLocation, User**& List, int& Num, LoanControl* loanControler);
 };
 
 #endif

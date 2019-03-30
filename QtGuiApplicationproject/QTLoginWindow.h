@@ -3,7 +3,7 @@
 #include <QDialog>
 #include "ui_QTLoginWindow.h"
 #include "ui_ThankYouDialog.h"
-class LoanControl;
+#include "LoanControler.h"
 class QTLoginWindow : public QDialog
 {
 	Q_OBJECT
@@ -11,9 +11,10 @@ class QTLoginWindow : public QDialog
 public:
 	QTLoginWindow(QWidget *parent = Q_NULLPTR);
 	~QTLoginWindow();
-	LoanControl* Parent;
+	LoanControl* Parents;
 	void initialize(LoanControl* arg);
 	void reset();
+	User* checkLoginInfo(string name,string password);
 private:
 	Ui::QTLoginWindow ui;
 public slots:

@@ -7,13 +7,13 @@ using std::fstream;
 
 
 
-void FileHandiler::fileRead(Equipment**& List, int& Num,LoanControl* loanControler)
+int FileHandiler::fileRead(Equipment**& List, int& Num,LoanControl* loanControler)
 {
 	loanControler->EquipmentList = nullptr;
-	fileRead("camp_equipment.txt", List, Num, loanControler);
+	return fileRead("camp_equipment.txt", List, Num, loanControler);
 }
 
-void FileHandiler::fileRead(string fileLocation, Equipment **& List, int & Num, LoanControl * loanControler)
+int FileHandiler::fileRead(string fileLocation, Equipment **& List, int & Num, LoanControl * loanControler)
 {
 	for (int i = 0; i < loanControler->NoOfEquipments; i++)
 		delete List[i];
@@ -71,22 +71,75 @@ void FileHandiler::fileRead(string fileLocation, Equipment **& List, int & Num, 
 				List[i] = new Stove(code, name, brand, type, dOP, condition, status, itemType, temp);
 				loanControler->NoOfStoves++;
 			}
-			else {
+			else if (type == "lantern") {
 				string lanternSize(temp.substr(0, temp.find("|")));
 				temp.erase(0, temp.find("|") + 1);
 				List[i] = new Lantern(code, name, brand, type, dOP, condition, status, itemType, lanternSize, temp);
 				loanControler->NoOfLanterns++;
 			}
+			else return 1;
 		}
 	}
+	return 0;
 }
 
-void FileHandiler::fileRead(User **& List, int & Num, LoanControl * loanControler)
+int FileHandiler::fileRead(User **& List, int & Num, LoanControl * loanControler)
 {
+	loanControler->UserList = nullptr;
+	return fileRead("user.txt", List, Num, loanControler);
 }
 
-void FileHandiler::fileRead(string fileLocation, User **& List, int & Num, LoanControl * loanControler)
+int FileHandiler::fileRead(string fileLocation, User **& List, int & Num, LoanControl * loanControler)
 {
+	Num = 0;
+	for (int i = 0; i < loanControler->NoOfUsers; i++)
+		delete List[i];
+	string temp;
+	fstream TargetFile(fileLocation, std::ifstream::in);
+	while (getline(TargetFile, temp))
+		if (temp.empty())
+			continue;
+		else
+			Num++;
+	List = new User*[Num];
+	TargetFile.clear();
+	TargetFile.seekg(0, std::ios::beg);
+	for (int i = 0; i < Num; i++) {
+		string temp;
+		do {
+			getline(TargetFile, temp);
+		} while (temp.empty());
+		string ID(temp.substr(0, temp.find("|")));
+		temp.erase(0, temp.find("|") + 1);
+		string name(temp.substr(0, temp.find("|")));
+		temp.erase(0, temp.find("|") + 1);
+		string section(temp.substr(0, temp.find("|")));
+		temp.erase(0, temp.find("|") + 1);
+		string dob(temp.substr(0, temp.find("|")));
+		temp.erase(0, temp.find("|") + 1);
+		if (ID.substr(0, 3) == "SCT")
+		{
+			string address(temp.substr(0, temp.find("|")));
+			temp.erase(0, temp.find("|") + 1);
+			List[i] = new Scout(ID, name, section, dob, address, temp);
+		}
+		else if (ID.substr(0, 3) == "SCM")
+		{
+			string address(temp.substr(0, temp.find("|")));
+			temp.erase(0, temp.find("|") + 1);
+			List[i] = new Scouter(ID, name, section, dob, address, temp);
+		}
+		else if (ID.substr(0, 3) == "VEN")
+		{
+			List[i] = new VScout(ID, name, section, dob, temp);
+		}
+		else if (ID.substr(0, 3) == "ROV")
+		{
+			List[i] = new RScout(ID, name, section, dob, temp);
+		}
+		else return 1;
+	}
+	return 0;
 }
 
 

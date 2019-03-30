@@ -4,6 +4,8 @@
 LoanControl::LoanControl()
 {
 	FileHandiler::fileRead(EquipmentList, NoOfEquipments, this);
+	FileHandiler::fileRead(UserList, NoOfUsers, this);
+	currentUser = nullptr;
 }
 
 
@@ -11,6 +13,8 @@ LoanControl::~LoanControl()
 {
 	for (int i = 0; i < this->NoOfEquipments; i++)
 		delete EquipmentList[i];
+	for (int i = 0; i < this->NoOfUsers; i++)
+		delete UserList[i];
 }
 
 Equipment ** LoanControl::getEquipment(string type,bool Admin)
@@ -27,6 +31,11 @@ Equipment ** LoanControl::getEquipment(string type,bool Admin)
 			temp++;
 		}
 	return Result;
+}
+
+void LoanControl::setCurrentUser(User * arg)
+{
+	currentUser = arg;
 }
 
 

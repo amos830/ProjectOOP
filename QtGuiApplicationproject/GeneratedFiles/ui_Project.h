@@ -11,10 +11,13 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,30 +25,126 @@ QT_BEGIN_NAMESPACE
 class Ui_ProjectClass
 {
 public:
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
     QWidget *centralWidget;
+    QVBoxLayout *verticalLayout;
+    QLabel *Title;
+    QLabel *Welcome;
+    QSpacerItem *verticalSpacer_3;
+    QSpacerItem *verticalSpacer;
+    QGridLayout *gridLayout;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton;
+    QGridLayout *gridLayout_2;
+    QPushButton *LogoutButton;
+    QSpacerItem *horizontalSpacer_3;
+    QSpacerItem *horizontalSpacer_5;
+    QSpacerItem *horizontalSpacer_6;
+    QPushButton *ExitButton;
+    QSpacerItem *horizontalSpacer_4;
+    QSpacerItem *verticalSpacer_5;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *ProjectClass)
     {
         if (ProjectClass->objectName().isEmpty())
             ProjectClass->setObjectName(QString::fromUtf8("ProjectClass"));
-        ProjectClass->resize(600, 400);
-        menuBar = new QMenuBar(ProjectClass);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        ProjectClass->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(ProjectClass);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        ProjectClass->addToolBar(mainToolBar);
+        ProjectClass->resize(600, 381);
         centralWidget = new QWidget(ProjectClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        verticalLayout = new QVBoxLayout(centralWidget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        Title = new QLabel(centralWidget);
+        Title->setObjectName(QString::fromUtf8("Title"));
+        Title->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(Title);
+
+        Welcome = new QLabel(centralWidget);
+        Welcome->setObjectName(QString::fromUtf8("Welcome"));
+        Welcome->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(Welcome);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_3);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer);
+
+        gridLayout = new QGridLayout();
+        gridLayout->setSpacing(6);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 0, 1, 1, 1);
+
+        pushButton_2 = new QPushButton(centralWidget);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+
+        gridLayout->addWidget(pushButton_2, 1, 0, 1, 1);
+
+        pushButton_3 = new QPushButton(centralWidget);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+
+        gridLayout->addWidget(pushButton_3, 2, 0, 1, 1);
+
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+
+        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
+
+
+        verticalLayout->addLayout(gridLayout);
+
+        gridLayout_2 = new QGridLayout();
+        gridLayout_2->setSpacing(6);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        LogoutButton = new QPushButton(centralWidget);
+        LogoutButton->setObjectName(QString::fromUtf8("LogoutButton"));
+
+        gridLayout_2->addWidget(LogoutButton, 2, 1, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_3, 1, 0, 1, 1);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_5, 2, 0, 1, 1);
+
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_6, 2, 2, 1, 1);
+
+        ExitButton = new QPushButton(centralWidget);
+        ExitButton->setObjectName(QString::fromUtf8("ExitButton"));
+
+        gridLayout_2->addWidget(ExitButton, 1, 1, 1, 1);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_4, 1, 2, 1, 1);
+
+        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_5, 0, 1, 1, 1);
+
+
+        verticalLayout->addLayout(gridLayout_2);
+
         ProjectClass->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(ProjectClass);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         ProjectClass->setStatusBar(statusBar);
 
         retranslateUi(ProjectClass);
+        QObject::connect(LogoutButton, SIGNAL(clicked()), ProjectClass, SLOT(close()));
 
         QMetaObject::connectSlotsByName(ProjectClass);
     } // setupUi
@@ -53,6 +152,13 @@ public:
     void retranslateUi(QMainWindow *ProjectClass)
     {
         ProjectClass->setWindowTitle(QApplication::translate("ProjectClass", "Project", nullptr));
+        Title->setText(QApplication::translate("ProjectClass", "Scout System", nullptr));
+        Welcome->setText(QApplication::translate("ProjectClass", "Welcome", nullptr));
+        pushButton_2->setText(QApplication::translate("ProjectClass", "Test 2", nullptr));
+        pushButton_3->setText(QApplication::translate("ProjectClass", "Test 3", nullptr));
+        pushButton->setText(QApplication::translate("ProjectClass", "Test 1", nullptr));
+        LogoutButton->setText(QApplication::translate("ProjectClass", "Log Out", nullptr));
+        ExitButton->setText(QApplication::translate("ProjectClass", "Exit", nullptr));
     } // retranslateUi
 
 };
