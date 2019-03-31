@@ -15,6 +15,7 @@ public:
 	void initialize(LoanControl* arg);
 	void reset();
 	User* checkLoginInfo(string name,string password);
+	void keyPressEvent(QKeyEvent *event) override;
 private:
 	Ui::QTLoginWindow ui;
 public slots:

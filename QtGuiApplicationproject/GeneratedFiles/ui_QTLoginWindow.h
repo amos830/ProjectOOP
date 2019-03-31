@@ -118,6 +118,8 @@ public:
 
         Exit = new QPushButton(QTLoginWindow);
         Exit->setObjectName(QString::fromUtf8("Exit"));
+        Exit->setAutoDefault(false);
+        Exit->setFlat(false);
 
         gridLayout->addWidget(Exit, 1, 1, 1, 1);
 

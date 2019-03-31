@@ -3,10 +3,15 @@
 #include "QtAdminMenu.h"
 #include <QTimer>
 #include <QThread>
+#include <QKeyEvent>
 QTLoginWindow::QTLoginWindow(QWidget *parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
+	ui.UserNameInput->setFocus();
+	setTabOrder(ui.UserNameInput,ui.PasswordInput);
+	setTabOrder(ui.PasswordInput,ui.ConfirmButton);
+	setTabOrder(ui.ConfirmButton,ui.Exit);
 }
 QTLoginWindow::~QTLoginWindow()
 {
@@ -35,6 +40,32 @@ User* QTLoginWindow::checkLoginInfo(string name,string password)
 			}
 		}
 		return nullptr;
+}
+
+void QTLoginWindow::keyPressEvent(QKeyEvent * event)
+{
+	QKeyEvent *tab=new QKeyEvent(QEvent::KeyPress, Qt::Key_Tab,Qt::NoModifier);
+	QKeyEvent *shifttab = new QKeyEvent(QEvent::KeyPress, Qt::Key_Tab,Qt::ShiftModifier);
+	QKeyEvent *tabr = new QKeyEvent(QEvent::KeyRelease, Qt::Key_Tab, Qt::NoModifier);
+	QKeyEvent *shifttabr = new QKeyEvent(QEvent::KeyRelease, Qt::Key_Tab, Qt::ShiftModifier);
+	if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
+		if (ui.UserNameInput->hasFocus())
+			ui.PasswordInput->setFocus();
+		else if (ui.PasswordInput->hasFocus())
+			emit ui.ConfirmButton->clicked();
+		else if (!strcmp(focusWidget()->metaObject()->className(),"QPushButton"))
+			emit qobject_cast<QPushButton *>(focusWidget())->clicked();
+	}
+	else if (event->key() == Qt::Key_Up)
+				{
+					QCoreApplication::postEvent(this,shifttab);
+					QCoreApplication::postEvent(this, shifttabr);
+				}
+	else if (event->key() == Qt::Key_Down)
+				{
+					QCoreApplication::postEvent(this, tab);
+					QCoreApplication::postEvent(this, tabr);
+				}
 }
 
 void QTLoginWindow::checkPassword() 
