@@ -26,19 +26,19 @@ class Ui_QtAdminMenu
 public:
     QWidget *centralWidget;
     QGridLayout *gridLayout;
-    QLabel *label;
+    QPushButton *Logout;
     QLabel *Title;
-    QPushButton *DisplayCamp;
-    QPushButton *Exit;
     QSpacerItem *verticalSpacer_2;
-    QSpacerItem *verticalSpacer;
     QPushButton *ExportCampEquipment;
+    QPushButton *ExportLoanRecords;
+    QLabel *label;
+    QPushButton *DisplayCamp;
     QSpacerItem *verticalSpacer_3;
+    QPushButton *Exit;
+    QSpacerItem *verticalSpacer;
+    QPushButton *ImportUser;
     QPushButton *DisplayLoan;
     QPushButton *ImportCamp;
-    QPushButton *ImportUser;
-    QPushButton *ExportLoanRecords;
-    QPushButton *Logout;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *QtAdminMenu)
@@ -52,11 +52,10 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        label = new QLabel(centralWidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setAlignment(Qt::AlignCenter);
+        Logout = new QPushButton(centralWidget);
+        Logout->setObjectName(QString::fromUtf8("Logout"));
 
-        gridLayout->addWidget(label, 1, 1, 1, 1);
+        gridLayout->addWidget(Logout, 8, 1, 1, 1);
 
         Title = new QLabel(centralWidget);
         Title->setObjectName(QString::fromUtf8("Title"));
@@ -65,32 +64,49 @@ public:
 
         gridLayout->addWidget(Title, 0, 1, 1, 1);
 
-        DisplayCamp = new QPushButton(centralWidget);
-        DisplayCamp->setObjectName(QString::fromUtf8("DisplayCamp"));
-
-        gridLayout->addWidget(DisplayCamp, 4, 2, 1, 1);
-
-        Exit = new QPushButton(centralWidget);
-        Exit->setObjectName(QString::fromUtf8("Exit"));
-
-        gridLayout->addWidget(Exit, 7, 1, 1, 1);
-
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(verticalSpacer_2, 6, 1, 1, 1);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 2, 0, 1, 3);
 
         ExportCampEquipment = new QPushButton(centralWidget);
         ExportCampEquipment->setObjectName(QString::fromUtf8("ExportCampEquipment"));
 
         gridLayout->addWidget(ExportCampEquipment, 5, 2, 1, 1);
 
+        ExportLoanRecords = new QPushButton(centralWidget);
+        ExportLoanRecords->setObjectName(QString::fromUtf8("ExportLoanRecords"));
+
+        gridLayout->addWidget(ExportLoanRecords, 5, 0, 1, 1);
+
+        label = new QLabel(centralWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label, 1, 1, 1, 1);
+
+        DisplayCamp = new QPushButton(centralWidget);
+        DisplayCamp->setObjectName(QString::fromUtf8("DisplayCamp"));
+
+        gridLayout->addWidget(DisplayCamp, 4, 2, 1, 1);
+
         verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(verticalSpacer_3, 10, 1, 1, 1);
+
+        Exit = new QPushButton(centralWidget);
+        Exit->setObjectName(QString::fromUtf8("Exit"));
+        Exit->setFlat(false);
+
+        gridLayout->addWidget(Exit, 7, 1, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 2, 0, 1, 3);
+
+        ImportUser = new QPushButton(centralWidget);
+        ImportUser->setObjectName(QString::fromUtf8("ImportUser"));
+
+        gridLayout->addWidget(ImportUser, 3, 0, 1, 1);
 
         DisplayLoan = new QPushButton(centralWidget);
         DisplayLoan->setObjectName(QString::fromUtf8("DisplayLoan"));
@@ -102,25 +118,17 @@ public:
 
         gridLayout->addWidget(ImportCamp, 3, 2, 1, 1);
 
-        ImportUser = new QPushButton(centralWidget);
-        ImportUser->setObjectName(QString::fromUtf8("ImportUser"));
-
-        gridLayout->addWidget(ImportUser, 3, 0, 1, 1);
-
-        ExportLoanRecords = new QPushButton(centralWidget);
-        ExportLoanRecords->setObjectName(QString::fromUtf8("ExportLoanRecords"));
-
-        gridLayout->addWidget(ExportLoanRecords, 5, 0, 1, 1);
-
-        Logout = new QPushButton(centralWidget);
-        Logout->setObjectName(QString::fromUtf8("Logout"));
-
-        gridLayout->addWidget(Logout, 8, 1, 1, 1);
-
         QtAdminMenu->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(QtAdminMenu);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         QtAdminMenu->setStatusBar(statusBar);
+        QWidget::setTabOrder(ImportUser, ImportCamp);
+        QWidget::setTabOrder(ImportCamp, DisplayLoan);
+        QWidget::setTabOrder(DisplayLoan, DisplayCamp);
+        QWidget::setTabOrder(DisplayCamp, ExportLoanRecords);
+        QWidget::setTabOrder(ExportLoanRecords, ExportCampEquipment);
+        QWidget::setTabOrder(ExportCampEquipment, Exit);
+        QWidget::setTabOrder(Exit, Logout);
 
         retranslateUi(QtAdminMenu);
         QObject::connect(DisplayCamp, SIGNAL(clicked()), QtAdminMenu, SLOT(displayEquipmentAdmin()));
@@ -138,16 +146,16 @@ public:
     void retranslateUi(QMainWindow *QtAdminMenu)
     {
         QtAdminMenu->setWindowTitle(QApplication::translate("QtAdminMenu", "Administrator Menu", nullptr));
-        label->setText(QApplication::translate("QtAdminMenu", "Welcome Adminsitrator", nullptr));
+        Logout->setText(QApplication::translate("QtAdminMenu", "Log Out", nullptr));
         Title->setText(QApplication::translate("QtAdminMenu", "Scout System", nullptr));
+        ExportCampEquipment->setText(QApplication::translate("QtAdminMenu", "Export Camp Equipment", nullptr));
+        ExportLoanRecords->setText(QApplication::translate("QtAdminMenu", "Export Loan Records", nullptr));
+        label->setText(QApplication::translate("QtAdminMenu", "Welcome Adminsitrator", nullptr));
         DisplayCamp->setText(QApplication::translate("QtAdminMenu", "Display Camp Equipment", nullptr));
         Exit->setText(QApplication::translate("QtAdminMenu", "Exit", nullptr));
-        ExportCampEquipment->setText(QApplication::translate("QtAdminMenu", "Export Camp Equipment", nullptr));
+        ImportUser->setText(QApplication::translate("QtAdminMenu", "Import Users", nullptr));
         DisplayLoan->setText(QApplication::translate("QtAdminMenu", "Display Loan Records", nullptr));
         ImportCamp->setText(QApplication::translate("QtAdminMenu", "Import Camp Equipments", nullptr));
-        ImportUser->setText(QApplication::translate("QtAdminMenu", "Import Users", nullptr));
-        ExportLoanRecords->setText(QApplication::translate("QtAdminMenu", "Export Loan Records", nullptr));
-        Logout->setText(QApplication::translate("QtAdminMenu", "Log Out", nullptr));
     } // retranslateUi
 
 };

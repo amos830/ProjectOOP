@@ -15,13 +15,10 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="1">
-     <widget class="QLabel" name="label">
+    <item row="8" column="1">
+     <widget class="QPushButton" name="Logout">
       <property name="text">
-       <string>Welcome Adminsitrator</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
+       <string>Log Out</string>
       </property>
      </widget>
     </item>
@@ -38,35 +35,8 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="2">
-     <widget class="QPushButton" name="DisplayCamp">
-      <property name="text">
-       <string>Display Camp Equipment</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="1">
-     <widget class="QPushButton" name="Exit">
-      <property name="text">
-       <string>Exit</string>
-      </property>
-     </widget>
-    </item>
     <item row="6" column="1">
      <spacer name="verticalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item row="2" column="0" colspan="3">
-     <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
@@ -85,6 +55,30 @@
       </property>
      </widget>
     </item>
+    <item row="5" column="0">
+     <widget class="QPushButton" name="ExportLoanRecords">
+      <property name="text">
+       <string>Export Loan Records</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Welcome Adminsitrator</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QPushButton" name="DisplayCamp">
+      <property name="text">
+       <string>Display Camp Equipment</string>
+      </property>
+     </widget>
+    </item>
     <item row="10" column="1">
      <spacer name="verticalSpacer_3">
       <property name="orientation">
@@ -97,6 +91,36 @@
        </size>
       </property>
      </spacer>
+    </item>
+    <item row="7" column="1">
+     <widget class="QPushButton" name="Exit">
+      <property name="text">
+       <string>Exit</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="3">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="ImportUser">
+      <property name="text">
+       <string>Import Users</string>
+      </property>
+     </widget>
     </item>
     <item row="4" column="0">
      <widget class="QPushButton" name="DisplayLoan">
@@ -112,32 +136,21 @@
       </property>
      </widget>
     </item>
-    <item row="3" column="0">
-     <widget class="QPushButton" name="ImportUser">
-      <property name="text">
-       <string>Import Users</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QPushButton" name="ExportLoanRecords">
-      <property name="text">
-       <string>Export Loan Records</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="1">
-     <widget class="QPushButton" name="Logout">
-      <property name="text">
-       <string>Log Out</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>ImportUser</tabstop>
+  <tabstop>ImportCamp</tabstop>
+  <tabstop>DisplayLoan</tabstop>
+  <tabstop>DisplayCamp</tabstop>
+  <tabstop>ExportLoanRecords</tabstop>
+  <tabstop>ExportCampEquipment</tabstop>
+  <tabstop>Exit</tabstop>
+  <tabstop>Logout</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

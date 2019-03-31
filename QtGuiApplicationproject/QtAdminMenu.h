@@ -13,6 +13,11 @@ public:
 	~QtAdminMenu();
 	LoanControl* loanControler;
 	void initialize(LoanControl* arg);
+	void keyPressEvent(QKeyEvent * event)	override;
+	void focusGoRight(bool reverse);
+	void focusGoDown(bool reverse);
+	bool eventFilter(QObject *object, QEvent *event) override;
+	bool keyboardmode;
 public slots:
 	void displayEquipmentAdmin();
 	void importCampEquipment();
@@ -20,4 +25,8 @@ public slots:
 	void exportLoanRecords();
 	void displayLoanRecords();
 	void importUsers();
+private:
+	QPushButton*** Layout;
+	int x;
+	int y;
 };

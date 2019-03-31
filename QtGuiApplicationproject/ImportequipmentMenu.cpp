@@ -29,7 +29,8 @@ void ImportequipmentMenu::updatePreview()
 }
 void ImportequipmentMenu::importEquipment()
 {
-	FileHandiler::fileRead(DisplayFile->text().toStdString(), Parent->loanControler->EquipmentList, Parent->loanControler->NoOfEquipments, Parent->loanControler);
+	if(DisplayFile->text()!="")
+		FileHandiler::fileRead(DisplayFile->text().toStdString(), Parent->loanControler->EquipmentList, Parent->loanControler->NoOfEquipments, Parent->loanControler);
 	hide();
 }
 void ImportequipmentMenu::selectFile(){

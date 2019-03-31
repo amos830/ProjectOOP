@@ -8,10 +8,7 @@ QTLoginWindow::QTLoginWindow(QWidget *parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
-	ui.UserNameInput->setFocus();
-	setTabOrder(ui.UserNameInput,ui.PasswordInput);
-	setTabOrder(ui.PasswordInput,ui.ConfirmButton);
-	setTabOrder(ui.ConfirmButton,ui.Exit);
+	reset();
 }
 QTLoginWindow::~QTLoginWindow()
 {
@@ -26,6 +23,10 @@ void QTLoginWindow::reset()
 	ui.UserNameInput->setText("");
 	ui.PasswordInput->setText("");
 	ui.Error->setText("");
+	ui.UserNameInput->setFocus();
+	setTabOrder(ui.UserNameInput, ui.PasswordInput);
+	setTabOrder(ui.PasswordInput, ui.ConfirmButton);
+	setTabOrder(ui.ConfirmButton, ui.Exit);
 }
 
 User* QTLoginWindow::checkLoginInfo(string name,string password)
@@ -44,8 +45,8 @@ User* QTLoginWindow::checkLoginInfo(string name,string password)
 
 void QTLoginWindow::keyPressEvent(QKeyEvent * event)
 {
-	QKeyEvent *tab=new QKeyEvent(QEvent::KeyPress, Qt::Key_Tab,Qt::NoModifier);
-	QKeyEvent *shifttab = new QKeyEvent(QEvent::KeyPress, Qt::Key_Tab,Qt::ShiftModifier);
+	QKeyEvent *tab = new QKeyEvent(QEvent::KeyPress, Qt::Key_Tab, Qt::NoModifier);
+	QKeyEvent *shifttab = new QKeyEvent(QEvent::KeyPress, Qt::Key_Tab, Qt::ShiftModifier);
 	QKeyEvent *tabr = new QKeyEvent(QEvent::KeyRelease, Qt::Key_Tab, Qt::NoModifier);
 	QKeyEvent *shifttabr = new QKeyEvent(QEvent::KeyRelease, Qt::Key_Tab, Qt::ShiftModifier);
 	if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
