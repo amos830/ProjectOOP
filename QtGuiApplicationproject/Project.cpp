@@ -7,9 +7,9 @@ Project::Project(QWidget *parent)
 	setupUi(this);
 }
 
-void Project::setLoanControler(LoanControl * arg)
+void Project::setLoanControler(LoanControl * args)
 {
-	loanControl = arg;
+	loanControl = args;
 	Welcome->setText("Welcome " + QString::fromStdString(loanControl->currentUser->getName()));
 }
 void Project::DisplayAndBorrow() {
