@@ -5,10 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
       <Extensions>qrc;*</Extensions>
@@ -27,6 +23,10 @@
       <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
       <Extensions>moc;h;cpp</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Form Files\Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,25 +75,25 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Project.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </QtMoc>
     <QtMoc Include="QTLoginWindow.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </QtMoc>
     <QtMoc Include="QTItemMenu.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </QtMoc>
     <QtMoc Include="QtAdminMenu.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </QtMoc>
     <QtMoc Include="ImportequipmentMenu.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </QtMoc>
     <QtMoc Include="ErrorAlert.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </QtMoc>
     <QtMoc Include="BorrowDialog.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -132,25 +132,37 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Equipment.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="User.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LoanControler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FileHandiler.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DropDisplayFile.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Struct.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LoanRecord.h">
-      <Filter>Header Files</Filter>
+      <Filter>Form Files\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Form Files\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>Form Files\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="QtGuiApplicationproject1.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico" />
   </ItemGroup>
 </Project>
