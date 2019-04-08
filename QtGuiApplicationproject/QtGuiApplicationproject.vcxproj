@@ -121,6 +121,7 @@
     <ClCompile Include="FileHandiler.cpp" />
     <ClCompile Include="ImportequipmentMenu.cpp" />
     <ClCompile Include="LoanControler.cpp" />
+    <ClCompile Include="LoanRecord.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Project.cpp" />
     <ClCompile Include="QtAdminMenu.cpp" />
@@ -158,6 +159,7 @@
     <ClInclude Include="LoanControler.h" />
     <QtMoc Include="QTItemMenu.h" />
     <QtMoc Include="QtAdminMenu.h" />
+    <ClInclude Include="LoanRecord.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
