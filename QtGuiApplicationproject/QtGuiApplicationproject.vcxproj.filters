@@ -112,13 +112,13 @@
     <QtUic Include="ImportequipmentMenu.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="..\..\..\C++\QtGuiApplicationproject\QtGuiApplicationproject\ThankYouDialog.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="ErrorAlert.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="BorrowDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ThankYouDialog.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

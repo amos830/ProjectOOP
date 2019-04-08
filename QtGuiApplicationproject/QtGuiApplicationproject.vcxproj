@@ -132,7 +132,6 @@
     <QtMoc Include="Project.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="..\..\..\C++\QtGuiApplicationproject\QtGuiApplicationproject\ThankYouDialog.ui" />
     <QtUic Include="BorrowDialog.ui" />
     <QtUic Include="ChangeConditionUI.ui" />
     <QtUic Include="ErrorAlert.ui" />
@@ -141,6 +140,7 @@
     <QtUic Include="QtAdminMenu.ui" />
     <QtUic Include="QTItemMenu.ui" />
     <QtUic Include="QTLoginWindow.ui" />
+    <QtUic Include="ThankYouDialog.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="Project.qrc" />
