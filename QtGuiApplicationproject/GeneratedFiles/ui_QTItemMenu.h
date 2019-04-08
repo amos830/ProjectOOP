@@ -13,9 +13,11 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
@@ -40,13 +42,17 @@ public:
     QWidget *LanternTab;
     QVBoxLayout *verticalLayout_4;
     QTableView *Lantern_Table;
+    QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer;
+    QSpacerItem *horizontalSpacer_5;
+    QSpacerItem *horizontalSpacer_6;
     QPushButton *Exit;
 
     void setupUi(QDialog *QTItemMenu)
     {
         if (QTItemMenu->objectName().isEmpty())
             QTItemMenu->setObjectName(QString::fromUtf8("QTItemMenu"));
-        QTItemMenu->resize(651, 774);
+        QTItemMenu->resize(1179, 607);
         verticalLayout_5 = new QVBoxLayout(QTItemMenu);
         verticalLayout_5->setSpacing(6);
         verticalLayout_5->setContentsMargins(11, 11, 11, 11);
@@ -109,18 +115,36 @@ public:
 
         verticalLayout_5->addLayout(verticalLayout);
 
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_5);
+
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_6);
+
         Exit = new QPushButton(QTItemMenu);
         Exit->setObjectName(QString::fromUtf8("Exit"));
 
-        verticalLayout_5->addWidget(Exit);
+        horizontalLayout->addWidget(Exit);
+
+
+        verticalLayout_5->addLayout(horizontalLayout);
 
 
         retranslateUi(QTItemMenu);
-        QObject::connect(Exit, SIGNAL(clicked()), QTItemMenu, SLOT(close()));
         QObject::connect(tabWidget, SIGNAL(currentChanged(int)), QTItemMenu, SLOT(updateTable()));
         QObject::connect(Tent_Table, SIGNAL(doubleClicked(QModelIndex)), QTItemMenu, SLOT(editConditionTent(QModelIndex)));
         QObject::connect(Stove_Table, SIGNAL(doubleClicked(QModelIndex)), QTItemMenu, SLOT(editConditionStove(QModelIndex)));
         QObject::connect(Lantern_Table, SIGNAL(doubleClicked(QModelIndex)), QTItemMenu, SLOT(editConditionLantern(QModelIndex)));
+        QObject::connect(Exit, SIGNAL(clicked()), QTItemMenu, SLOT(close()));
 
         tabWidget->setCurrentIndex(0);
 

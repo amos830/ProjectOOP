@@ -4,15 +4,17 @@
 #include "FileHandiler.h"
 #include "User.h"
 #include "Equipment.h"
+#include "Struct.h"
 class LoanControl
 {
 public:
+	bool isSucessful;
 	Equipment** EquipmentList;
 	User* CurrentUser;
 	User** UserList;
 	LoanControl();
 	~LoanControl();
-	Equipment ** getEquipment(string type,bool Admin);
+	EquipmentResult getEquipment(string type,bool Admin);
 	void setCurrentUser(User* arg);
 	int NoOfEquipments;
 	int NoOfTents;

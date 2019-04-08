@@ -3,6 +3,7 @@
 #include "QtAdminMenu.h"
 #include <QFileDialog>
 #include <QTextStream>
+#include "ErrorAlert.h"
 
 ImportequipmentMenu::ImportequipmentMenu(QWidget *parent)
 	: QDialog(parent)
@@ -29,9 +30,15 @@ void ImportequipmentMenu::updatePreview()
 }
 void ImportequipmentMenu::importEquipment()
 {
-	if(DisplayFile->text()!="")
-		FileHandiler::fileRead(DisplayFile->text().toStdString(), Parent->loanControler->EquipmentList, Parent->loanControler->NoOfEquipments, Parent->loanControler);
 	hide();
+	if(DisplayFile->text()!="")
+		if (FileHandiler::fileRead(DisplayFile->text().toStdString(), Parent->loanControler->EquipmentList, Parent->loanControler->NoOfEquipments, Parent->loanControler))
+		{
+			ErrorAlert Error;
+			Error.initialize(false,"Import Failed, Reverting to original Equipment file");
+			Error.exec();
+			FileHandiler::fileRead(Parent->loanControler->EquipmentList, Parent->loanControler->NoOfEquipments, Parent->loanControler);
+		}
 }
 void ImportequipmentMenu::selectFile(){
 	QString s = QFileDialog::getOpenFileName(this, tr("Open"), "/", "TXT files(*txt)");

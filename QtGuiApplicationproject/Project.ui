@@ -93,7 +93,7 @@
       <item row="0" column="0">
        <widget class="QPushButton" name="pushButton">
         <property name="text">
-         <string>Test 1</string>
+         <string>List Of Equipment</string>
         </property>
        </widget>
       </item>
@@ -207,5 +207,24 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ProjectClass</receiver>
+   <slot>DisplayAndBorrow()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>82</x>
+     <y>147</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>324</x>
+     <y>142</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>DisplayAndBorrow()</slot>
+ </slots>
 </ui>

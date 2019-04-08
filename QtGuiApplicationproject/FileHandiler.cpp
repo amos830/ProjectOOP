@@ -2,20 +2,24 @@
 #include "QtloginWindow.h"
 #include "LoanControler.h"
 #include <fstream>
-
+#include "ErrorAlert.h"
 using std::fstream;
 
 
 
-int FileHandiler::fileRead(Equipment**& List, int& Num,LoanControl* loanControler)
+void FileHandiler::fileRead(Equipment**& List, int& Num,LoanControl* loanControler)
 {
 	loanControler->EquipmentList = nullptr;
-	return fileRead("camp_equipment.txt", List, Num, loanControler);
+	if (fileRead("camp_equipment.txt", List, Num, loanControler)) {
+		ErrorAlert error;
+		error.initialize(true, "Fatal Error:Base Equipment File Import Error, Please Check the File");
+		error.exec();
+	}
 }
 
 int FileHandiler::fileRead(string fileLocation, Equipment **& List, int & Num, LoanControl * loanControler)
 {
-	for (int i = 0; i < loanControler->NoOfEquipments; i++)
+	for (int i = 0; i < loanControler->NoOfEquipments&&List!=nullptr; i++)
 		delete List[i];
 	Num = 0;
 	loanControler->NoOfTents = 0;
@@ -83,10 +87,10 @@ int FileHandiler::fileRead(string fileLocation, Equipment **& List, int & Num, L
 	return 0;
 }
 
-int FileHandiler::fileRead(User **& List, int & Num, LoanControl * loanControler)
+void FileHandiler::fileRead(User **& List, int & Num, LoanControl * loanControler)
 {
 	loanControler->UserList = nullptr;
-	return fileRead("user.txt", List, Num, loanControler);
+	fileRead("user.txt", List, Num, loanControler);
 }
 
 int FileHandiler::fileRead(string fileLocation, User **& List, int & Num, LoanControl * loanControler)

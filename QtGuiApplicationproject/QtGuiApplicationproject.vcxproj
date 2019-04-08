@@ -114,8 +114,10 @@
     </QtRcc>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BorrowDialog.cpp" />
     <ClCompile Include="DropDisplayFile.cpp" />
     <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="ErrorAlert.cpp" />
     <ClCompile Include="FileHandiler.cpp" />
     <ClCompile Include="ImportequipmentMenu.cpp" />
     <ClCompile Include="LoanControler.cpp" />
@@ -131,7 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="..\..\..\C++\QtGuiApplicationproject\QtGuiApplicationproject\ThankYouDialog.ui" />
+    <QtUic Include="BorrowDialog.ui" />
     <QtUic Include="ChangeConditionUI.ui" />
+    <QtUic Include="ErrorAlert.ui" />
     <QtUic Include="ImportequipmentMenu.ui" />
     <QtUic Include="Project.ui" />
     <QtUic Include="QtAdminMenu.ui" />
@@ -145,13 +149,16 @@
     <QtMoc Include="QTLoginWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="BorrowDialog.h" />
     <ClInclude Include="DropDisplayFile.h" />
     <ClInclude Include="Equipment.h" />
+    <QtMoc Include="ErrorAlert.h" />
     <ClInclude Include="FileHandiler.h" />
     <QtMoc Include="ImportequipmentMenu.h" />
     <ClInclude Include="LoanControler.h" />
     <QtMoc Include="QTItemMenu.h" />
     <QtMoc Include="QtAdminMenu.h" />
+    <ClInclude Include="Struct.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -31,7 +31,7 @@ void QTItemMenu::updateTable()
 	tentTable->setHorizontalHeaderItem(8, new QStandardItem(tr("Number Of Doors")));
 	tentTable->setHorizontalHeaderItem(9, new QStandardItem(tr("Double-layer?")));
 	tentTable->setHorizontalHeaderItem(10, new QStandardItem(tr("Colour")));
-	tents = Parent->getEquipment("tent", true);
+	tents = Parent->getEquipment("tent", true).List;
 	for (int i = 0; i < Parent->NoOfTents; i++) {
 		tentTable->setItem(i, 0, new QStandardItem(QString::fromStdString(tents[i]->getItemID())));
 		tentTable->setItem(i, 1, new QStandardItem(QString::fromStdString(tents[i]->getName())));
@@ -61,7 +61,7 @@ void QTItemMenu::updateTable()
 	stoveTable->setHorizontalHeaderItem(5, new QStandardItem(tr("Status")));//admin
 	stoveTable->setHorizontalHeaderItem(6, new QStandardItem(tr("Type")));
 	stoveTable->setHorizontalHeaderItem(7, new QStandardItem(tr("Fuel Type")));
-	stoves = Parent->getEquipment("stove", true);
+	stoves = Parent->getEquipment("stove", true).List;
 	for (int i = 0; i < Parent->NoOfStoves; i++) {
 		stoveTable->setItem(i, 0, new QStandardItem(QString::fromStdString(stoves[i]->getItemID())));
 		stoveTable->setItem(i, 1, new QStandardItem(QString::fromStdString(stoves[i]->getName())));
@@ -90,7 +90,7 @@ void QTItemMenu::updateTable()
 	lanternTable->setHorizontalHeaderItem(7, new QStandardItem(tr("Lantern Size")));
 	lanternTable->setHorizontalHeaderItem(8, new QStandardItem(tr("Fuel Type")));
 
-	lanterns = Parent->getEquipment("lantern", true);
+	lanterns = Parent->getEquipment("lantern", true).List;
 	for (int i = 0; i < Parent->NoOfLanterns; i++) {
 		lanternTable->setItem(i, 0, new QStandardItem(QString::fromStdString(lanterns[i]->getItemID())));
 		lanternTable->setItem(i, 1, new QStandardItem(QString::fromStdString(lanterns[i]->getName())));

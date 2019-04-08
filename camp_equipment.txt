@@ -1,4 +1,4 @@
-T001|25th Jam Tent|Nikko|tent|02042014|good|in|4|dome|2|true|blue
+T001|25th Jam Tent|Nikko|tents|02042014|good|in|4|dome|2|true|blue
 
 T002|25th Jam Tent|Nikko|tent|02042014|good|in|4|dome|2|true|blue
 

@@ -145,6 +145,7 @@ public:
 
         retranslateUi(ProjectClass);
         QObject::connect(LogoutButton, SIGNAL(clicked()), ProjectClass, SLOT(close()));
+        QObject::connect(pushButton, SIGNAL(clicked()), ProjectClass, SLOT(DisplayAndBorrow()));
 
         QMetaObject::connectSlotsByName(ProjectClass);
     } // setupUi
@@ -156,7 +157,7 @@ public:
         Welcome->setText(QApplication::translate("ProjectClass", "Welcome", nullptr));
         pushButton_2->setText(QApplication::translate("ProjectClass", "Test 2", nullptr));
         pushButton_3->setText(QApplication::translate("ProjectClass", "Test 3", nullptr));
-        pushButton->setText(QApplication::translate("ProjectClass", "Test 1", nullptr));
+        pushButton->setText(QApplication::translate("ProjectClass", "List Of Equipment", nullptr));
         LogoutButton->setText(QApplication::translate("ProjectClass", "Log Out", nullptr));
         ExitButton->setText(QApplication::translate("ProjectClass", "Exit", nullptr));
     } // retranslateUi

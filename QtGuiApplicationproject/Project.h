@@ -12,4 +12,6 @@ public:
 	void setLoanControler(LoanControl* arg);
 private:
 	LoanControl* loanControl;
+public slots:
+	void DisplayAndBorrow();
 };

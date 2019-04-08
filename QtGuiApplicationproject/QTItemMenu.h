@@ -4,6 +4,7 @@
 #include "ui_QTItemMenu.h"
 #include <QStandardItemModel>
 #include "QtAdminMenu.h"
+#include "Struct.h"
 
 class QTItemMenu : public QDialog
 {
