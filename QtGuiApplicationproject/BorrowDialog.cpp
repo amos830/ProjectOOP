@@ -124,3 +124,10 @@ void BorrowDialog::returnList() {
 	}
 	
 }
+
+void BorrowDialog::reset()
+{
+	AvalibleLIst->clear();
+	BorrowedList->clear();
+	updateTable();
+}

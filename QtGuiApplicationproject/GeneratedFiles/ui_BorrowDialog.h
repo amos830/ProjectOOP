@@ -29,9 +29,7 @@ QT_BEGIN_NAMESPACE
 class Ui_BorrowDialog
 {
 public:
-    QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout;
-    QHBoxLayout *horizontalLayout_5;
     QVBoxLayout *verticalLayout;
     QLabel *ListTitle;
     QTabWidget *tabWidget;
@@ -45,38 +43,31 @@ public:
     QVBoxLayout *verticalLayout_5;
     QTableView *LanternTableView;
     QGridLayout *gridLayout;
+    QListWidget *BorrowedList;
     QLabel *label_2;
-    QLabel *label;
+    QListWidget *AvalibleLIst;
     QGridLayout *gridLayout_2;
-    QPushButton *Right;
-    QPushButton *pushButton;
+    QPushButton *ConfirmButton;
+    QSpacerItem *verticalSpacer_4;
     QSpacerItem *verticalSpacer;
     QPushButton *Left;
-    QSpacerItem *verticalSpacer_3;
-    QSpacerItem *verticalSpacer_4;
     QPushButton *Exit;
     QSpacerItem *verticalSpacer_2;
-    QListWidget *AvalibleLIst;
-    QListWidget *BorrowedList;
+    QSpacerItem *verticalSpacer_3;
+    QPushButton *Right;
+    QSpacerItem *verticalSpacer_5;
+    QPushButton *Reset;
+    QLabel *label;
 
     void setupUi(QDialog *BorrowDialog)
     {
         if (BorrowDialog->objectName().isEmpty())
             BorrowDialog->setObjectName(QString::fromUtf8("BorrowDialog"));
-        BorrowDialog->resize(989, 526);
-        verticalLayout_2 = new QVBoxLayout(BorrowDialog);
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        horizontalLayout = new QHBoxLayout();
+        BorrowDialog->resize(997, 650);
+        horizontalLayout = new QHBoxLayout(BorrowDialog);
         horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-
-        verticalLayout_2->addLayout(horizontalLayout);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setSpacing(6);
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -132,24 +123,60 @@ public:
         verticalLayout->addWidget(tabWidget);
 
 
-        horizontalLayout_5->addLayout(verticalLayout);
+        horizontalLayout->addLayout(verticalLayout);
 
         gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        BorrowedList = new QListWidget(BorrowDialog);
+        BorrowedList->setObjectName(QString::fromUtf8("BorrowedList"));
+
+        gridLayout->addWidget(BorrowedList, 2, 3, 1, 1);
+
         label_2 = new QLabel(BorrowDialog);
         label_2->setObjectName(QString::fromUtf8("label_2"));
 
         gridLayout->addWidget(label_2, 0, 3, 1, 1);
 
-        label = new QLabel(BorrowDialog);
-        label->setObjectName(QString::fromUtf8("label"));
+        AvalibleLIst = new QListWidget(BorrowDialog);
+        AvalibleLIst->setObjectName(QString::fromUtf8("AvalibleLIst"));
 
-        gridLayout->addWidget(label, 0, 0, 1, 2);
+        gridLayout->addWidget(AvalibleLIst, 2, 0, 1, 1);
 
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setSpacing(6);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        ConfirmButton = new QPushButton(BorrowDialog);
+        ConfirmButton->setObjectName(QString::fromUtf8("ConfirmButton"));
+
+        gridLayout_2->addWidget(ConfirmButton, 7, 1, 1, 1);
+
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_4, 1, 1, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer, 0, 1, 1, 1);
+
+        Left = new QPushButton(BorrowDialog);
+        Left->setObjectName(QString::fromUtf8("Left"));
+
+        gridLayout_2->addWidget(Left, 4, 1, 1, 1);
+
+        Exit = new QPushButton(BorrowDialog);
+        Exit->setObjectName(QString::fromUtf8("Exit"));
+
+        gridLayout_2->addWidget(Exit, 9, 1, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_2, 10, 1, 1, 1);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_3, 6, 1, 1, 1);
+
         Right = new QPushButton(BorrowDialog);
         Right->setObjectName(QString::fromUtf8("Right"));
         QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
@@ -164,63 +191,34 @@ public:
 
         gridLayout_2->addWidget(Right, 2, 1, 1, 1);
 
-        pushButton = new QPushButton(BorrowDialog);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_2->addWidget(pushButton, 6, 1, 1, 1);
+        gridLayout_2->addItem(verticalSpacer_5, 5, 1, 1, 1);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        Reset = new QPushButton(BorrowDialog);
+        Reset->setObjectName(QString::fromUtf8("Reset"));
 
-        gridLayout_2->addItem(verticalSpacer, 0, 1, 1, 1);
-
-        Left = new QPushButton(BorrowDialog);
-        Left->setObjectName(QString::fromUtf8("Left"));
-
-        gridLayout_2->addWidget(Left, 4, 1, 1, 1);
-
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_2->addItem(verticalSpacer_3, 5, 1, 1, 1);
-
-        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_2->addItem(verticalSpacer_4, 1, 1, 1, 1);
-
-        Exit = new QPushButton(BorrowDialog);
-        Exit->setObjectName(QString::fromUtf8("Exit"));
-
-        gridLayout_2->addWidget(Exit, 7, 1, 1, 1);
-
-        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_2->addItem(verticalSpacer_2, 8, 1, 1, 1);
+        gridLayout_2->addWidget(Reset, 8, 1, 1, 1);
 
 
         gridLayout->addLayout(gridLayout_2, 2, 2, 1, 1);
 
-        AvalibleLIst = new QListWidget(BorrowDialog);
-        AvalibleLIst->setObjectName(QString::fromUtf8("AvalibleLIst"));
+        label = new QLabel(BorrowDialog);
+        label->setObjectName(QString::fromUtf8("label"));
 
-        gridLayout->addWidget(AvalibleLIst, 2, 0, 1, 1);
-
-        BorrowedList = new QListWidget(BorrowDialog);
-        BorrowedList->setObjectName(QString::fromUtf8("BorrowedList"));
-
-        gridLayout->addWidget(BorrowedList, 2, 3, 1, 1);
+        gridLayout->addWidget(label, 0, 0, 1, 2);
 
 
-        horizontalLayout_5->addLayout(gridLayout);
+        horizontalLayout->addLayout(gridLayout);
 
-        horizontalLayout_5->setStretch(0, 20);
-        horizontalLayout_5->setStretch(1, 10);
-
-        verticalLayout_2->addLayout(horizontalLayout_5);
-
+        horizontalLayout->setStretch(0, 30);
+        horizontalLayout->setStretch(1, 3);
 
         retranslateUi(BorrowDialog);
         QObject::connect(Exit, SIGNAL(clicked()), BorrowDialog, SLOT(hide()));
         QObject::connect(Right, SIGNAL(clicked()), BorrowDialog, SLOT(borrowList()));
         QObject::connect(Left, SIGNAL(clicked()), BorrowDialog, SLOT(returnList()));
+        QObject::connect(Reset, SIGNAL(clicked()), BorrowDialog, SLOT(reset()));
 
         tabWidget->setCurrentIndex(0);
 
@@ -236,11 +234,12 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(StoveTab), QApplication::translate("BorrowDialog", "Stove", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(LanternTab), QApplication::translate("BorrowDialog", "Lantern", nullptr));
         label_2->setText(QApplication::translate("BorrowDialog", "Borrowed Equipment", nullptr));
-        label->setText(QApplication::translate("BorrowDialog", "Avaliable Equipments", nullptr));
-        Right->setText(QApplication::translate("BorrowDialog", ">", nullptr));
-        pushButton->setText(QApplication::translate("BorrowDialog", "Confirm", nullptr));
+        ConfirmButton->setText(QApplication::translate("BorrowDialog", "Confirm", nullptr));
         Left->setText(QApplication::translate("BorrowDialog", "<", nullptr));
         Exit->setText(QApplication::translate("BorrowDialog", "Exit", nullptr));
+        Right->setText(QApplication::translate("BorrowDialog", ">", nullptr));
+        Reset->setText(QApplication::translate("BorrowDialog", "Reset", nullptr));
+        label->setText(QApplication::translate("BorrowDialog", "Avaliable Equipments", nullptr));
     } // retranslateUi
 
 };
