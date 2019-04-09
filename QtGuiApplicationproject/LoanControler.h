@@ -23,6 +23,7 @@ public:
 	int NoOfStoves;
 	int NoOfLanterns;
 	int NoOfUsers;
+	void BorrowItem(std::string id);
 	User* currentUser;
 };
 #endif

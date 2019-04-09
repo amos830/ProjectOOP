@@ -9,6 +9,7 @@ protected:
 	string dateOfBirth;
 	string section;
 	string address;
+	int quota;
 public:
 	static int NoOfUsers;
 		User(string userID,string name,string section,string dateOfBirth,string address);
