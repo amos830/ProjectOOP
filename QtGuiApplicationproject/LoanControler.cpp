@@ -1,5 +1,6 @@
 #include "LoanControler.h"
 #include "QTLoginWindow.h"
+#include "LoanRecord.h"
 
 LoanControl::LoanControl()
 {
