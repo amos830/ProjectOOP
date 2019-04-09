@@ -36,6 +36,16 @@ EquipmentResult LoanControl::getEquipment(string type,bool Admin)
 	return results;
 }
 
+Equipment * LoanControl::get1Equipment(string ID)
+{
+	for (int i = 0; i < NoOfEquipments; i++)
+		{
+		if (EquipmentList[i]->getItemID() == ID)
+			return EquipmentList[i];
+		}
+	return nullptr;
+}
+
 
 
 void LoanControl::setCurrentUser(User * arg)

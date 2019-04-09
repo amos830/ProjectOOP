@@ -17,6 +17,7 @@ public:
 	LoanControl();
 	~LoanControl();
 	EquipmentResult getEquipment(string type,bool Admin);
+	Equipment* get1Equipment(string ID);
 	void setCurrentUser(User* arg);
 	int NoOfEquipments;
 	int NoOfTents;
