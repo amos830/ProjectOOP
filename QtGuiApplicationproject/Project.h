@@ -14,4 +14,5 @@ private:
 	LoanControl* loanControl;
 public slots:
 	void DisplayAndBorrow();
+	void displayLoanRecord();
 };

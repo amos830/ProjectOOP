@@ -33,9 +33,9 @@ public:
     QSpacerItem *verticalSpacer;
     QGridLayout *gridLayout;
     QSpacerItem *horizontalSpacer;
-    QPushButton *pushButton_2;
+    QPushButton *LoanRecord;
     QPushButton *pushButton_3;
-    QPushButton *pushButton;
+    QPushButton *ListOfEquipment;
     QGridLayout *gridLayout_2;
     QPushButton *LogoutButton;
     QSpacerItem *horizontalSpacer_3;
@@ -84,20 +84,20 @@ public:
 
         gridLayout->addItem(horizontalSpacer, 0, 1, 1, 1);
 
-        pushButton_2 = new QPushButton(centralWidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        LoanRecord = new QPushButton(centralWidget);
+        LoanRecord->setObjectName(QString::fromUtf8("LoanRecord"));
 
-        gridLayout->addWidget(pushButton_2, 1, 0, 1, 1);
+        gridLayout->addWidget(LoanRecord, 1, 0, 1, 1);
 
         pushButton_3 = new QPushButton(centralWidget);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
 
         gridLayout->addWidget(pushButton_3, 2, 0, 1, 1);
 
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        ListOfEquipment = new QPushButton(centralWidget);
+        ListOfEquipment->setObjectName(QString::fromUtf8("ListOfEquipment"));
 
-        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
+        gridLayout->addWidget(ListOfEquipment, 0, 0, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout);
@@ -145,7 +145,8 @@ public:
 
         retranslateUi(ProjectClass);
         QObject::connect(LogoutButton, SIGNAL(clicked()), ProjectClass, SLOT(close()));
-        QObject::connect(pushButton, SIGNAL(clicked()), ProjectClass, SLOT(DisplayAndBorrow()));
+        QObject::connect(ListOfEquipment, SIGNAL(clicked()), ProjectClass, SLOT(DisplayAndBorrow()));
+        QObject::connect(LoanRecord, SIGNAL(clicked()), ProjectClass, SLOT(displayLoanRecord()));
 
         QMetaObject::connectSlotsByName(ProjectClass);
     } // setupUi
@@ -155,9 +156,9 @@ public:
         ProjectClass->setWindowTitle(QApplication::translate("ProjectClass", "Project", nullptr));
         Title->setText(QApplication::translate("ProjectClass", "Scout System", nullptr));
         Welcome->setText(QApplication::translate("ProjectClass", "Welcome", nullptr));
-        pushButton_2->setText(QApplication::translate("ProjectClass", "Test 2", nullptr));
+        LoanRecord->setText(QApplication::translate("ProjectClass", "List Loan Records", nullptr));
         pushButton_3->setText(QApplication::translate("ProjectClass", "Test 3", nullptr));
-        pushButton->setText(QApplication::translate("ProjectClass", "List Of Equipment", nullptr));
+        ListOfEquipment->setText(QApplication::translate("ProjectClass", "List Of Equipment", nullptr));
         LogoutButton->setText(QApplication::translate("ProjectClass", "Log Out", nullptr));
         ExitButton->setText(QApplication::translate("ProjectClass", "Exit", nullptr));
     } // retranslateUi

@@ -126,6 +126,7 @@
     <ClCompile Include="Project.cpp" />
     <ClCompile Include="QtAdminMenu.cpp" />
     <ClCompile Include="QTItemMenu.cpp" />
+    <ClCompile Include="QtLoanRecordView.cpp" />
     <ClCompile Include="QTLoginWindow.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
@@ -140,6 +141,7 @@
     <QtUic Include="Project.ui" />
     <QtUic Include="QtAdminMenu.ui" />
     <QtUic Include="QTItemMenu.ui" />
+    <QtUic Include="QtLoanRecordView.ui" />
     <QtUic Include="QTLoginWindow.ui" />
     <QtUic Include="ThankYouDialog.ui" />
   </ItemGroup>
@@ -160,6 +162,7 @@
     <QtMoc Include="QTItemMenu.h" />
     <QtMoc Include="QtAdminMenu.h" />
     <ClInclude Include="LoanRecord.h" />
+    <QtMoc Include="QtLoanRecordView.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />
     <ClInclude Include="Struct.h" />

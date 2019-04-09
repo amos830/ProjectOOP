@@ -1,6 +1,7 @@
 #include "Project.h"
 #include "LoanControler.h"
 #include "BorrowDialog.h"
+#include "QtLoanRecordView.h"
 Project::Project(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -11,6 +12,13 @@ void Project::setLoanControler(LoanControl * args)
 {
 	loanControl = args;
 	Welcome->setText("Welcome " + QString::fromStdString(loanControl->currentUser->getName()));
+}
+void Project::displayLoanRecord()
+{
+	hide();
+	QtLoanRecordView test(this);
+	test.exec();
+	show();
 }
 void Project::DisplayAndBorrow() {
 	hide();

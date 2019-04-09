@@ -72,6 +72,9 @@
     <ClCompile Include="LoanRecord.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QtLoanRecordView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Project.h">
@@ -93,6 +96,9 @@
       <Filter>Form Files\Header Files</Filter>
     </QtMoc>
     <QtMoc Include="BorrowDialog.h">
+      <Filter>Form Files\Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="QtLoanRecordView.h">
       <Filter>Form Files\Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -122,6 +128,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="ThankYouDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="QtLoanRecordView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

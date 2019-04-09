@@ -6,6 +6,7 @@
 #include "Equipment.h"
 #include "Struct.h"
 #include "LoanRecord.h"
+#include <vector>
 
 class LoanControl
 {
@@ -24,7 +25,8 @@ public:
 	int NoOfStoves;
 	int NoOfLanterns;
 	int NoOfUsers;
-	void BorrowItem(std::string id);
+	bool BorrowItem(std::string id);
 	User* currentUser;
+	std::shared_ptr<std::vector<LoanRecord>> records;
 };
 #endif

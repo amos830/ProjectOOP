@@ -53,13 +53,13 @@ void LoanControl::setCurrentUser(User * arg)
 	currentUser = arg;
 }
 
-void LoanControl::BorrowItem(string id)
+bool LoanControl::BorrowItem(string id)
 {
 	Equipment* item = get1Equipment(id);
-	string name = item->getName;
-	string nameOfBorrower = CurrentUser->getName;
-	LoanRecord temp(name, nameOfBorrower, id);
-
+	string name = item->getName();
+	string nameOfBorrower = CurrentUser->getName();
+	records->push_back(LoanRecord(name, nameOfBorrower, id));
+	return 0;
 }
 
 

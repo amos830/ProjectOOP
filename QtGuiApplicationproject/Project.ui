@@ -77,9 +77,9 @@
        </spacer>
       </item>
       <item row="1" column="0">
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="LoanRecord">
         <property name="text">
-         <string>Test 2</string>
+         <string>List Loan Records</string>
         </property>
        </widget>
       </item>
@@ -91,7 +91,7 @@
        </widget>
       </item>
       <item row="0" column="0">
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="ListOfEquipment">
         <property name="text">
          <string>List Of Equipment</string>
         </property>
@@ -208,7 +208,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
+   <sender>ListOfEquipment</sender>
    <signal>clicked()</signal>
    <receiver>ProjectClass</receiver>
    <slot>DisplayAndBorrow()</slot>
@@ -223,8 +223,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>LoanRecord</sender>
+   <signal>clicked()</signal>
+   <receiver>ProjectClass</receiver>
+   <slot>displayLoanRecord()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>86</x>
+     <y>176</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>272</x>
+     <y>194</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>DisplayAndBorrow()</slot>
+  <slot>displayLoanRecord()</slot>
  </slots>
 </ui>
