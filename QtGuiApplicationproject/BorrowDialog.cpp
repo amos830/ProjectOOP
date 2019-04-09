@@ -100,5 +100,27 @@ void BorrowDialog::updateTable() {
 	LanternTableView->verticalHeader()->hide();
 	LanternTableView->setSelectionMode(QAbstractItemView::SingleSelection);
 	LanternTableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+	EquipmentResult Avalible = loanController->getEquipment("", false);
+	for (int i = 0; i < Avalible.size; i++)
+	{
+		AvalibleLIst->addItem(QString::fromStdString(Avalible.List[i]->getItemID()));
+	}
+	AvalibleLIst->setSelectionMode(QAbstractItemView::MultiSelection);
+	BorrowedList->addItem("T123");
+	BorrowedList->setSelectionMode(QAbstractItemView::MultiSelection);
 }
-
+void BorrowDialog::borrowList() {
+	for each (QListWidgetItem *code in AvalibleLIst->selectedItems())
+	{
+		BorrowedList->addItem(AvalibleLIst->takeItem(AvalibleLIst->row(code)));
+		code->setForeground((code->foreground()==Qt::red)?Qt::black:Qt::red);
+	}
+}
+void BorrowDialog::returnList() {
+	for each (QListWidgetItem *code in BorrowedList->selectedItems())
+	{
+		AvalibleLIst->addItem(BorrowedList->takeItem(BorrowedList->row(code)));
+		code->setForeground((code->foreground() == Qt::red) ? Qt::black : Qt::red);
+	}
+	
+}

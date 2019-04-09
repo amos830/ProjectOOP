@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>861</width>
-    <height>538</height>
+    <width>989</width>
+    <height>526</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,31 +15,10 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QPushButton" name="Exit">
-       <property name="text">
-        <string>Exit</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-    </layout>
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="7,5">
+    <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="20,10">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
        <item>
@@ -55,7 +34,7 @@
           <enum>Qt::DefaultContextMenu</enum>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="TentTab">
           <attribute name="title">
@@ -133,9 +112,6 @@
      </item>
      <item>
       <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0" columnstretch="0,0,0,0">
-       <item row="2" column="3">
-        <widget class="QListView" name="listView_2"/>
-       </item>
        <item row="0" column="3">
         <widget class="QLabel" name="label_2">
          <property name="text">
@@ -152,7 +128,7 @@
        </item>
        <item row="2" column="2">
         <layout class="QGridLayout" name="gridLayout_2">
-         <item row="1" column="1">
+         <item row="2" column="1">
           <widget class="QPushButton" name="Right">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -176,25 +152,12 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="1">
-          <widget class="QPushButton" name="Left">
+         <item row="6" column="1">
+          <widget class="QPushButton" name="pushButton">
            <property name="text">
-            <string>&lt;</string>
+            <string>Confirm</string>
            </property>
           </widget>
-         </item>
-         <item row="4" column="1">
-          <spacer name="verticalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
          </item>
          <item row="0" column="1">
           <spacer name="verticalSpacer">
@@ -209,10 +172,66 @@
            </property>
           </spacer>
          </item>
+         <item row="4" column="1">
+          <widget class="QPushButton" name="Left">
+           <property name="text">
+            <string>&lt;</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <spacer name="verticalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="1">
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="7" column="1">
+          <widget class="QPushButton" name="Exit">
+           <property name="text">
+            <string>Exit</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
         </layout>
        </item>
        <item row="2" column="0">
-        <widget class="QListView" name="listView"/>
+        <widget class="QListWidget" name="AvalibleLIst"/>
+       </item>
+       <item row="2" column="3">
+        <widget class="QListWidget" name="BorrowedList"/>
        </item>
       </layout>
      </item>
@@ -230,8 +249,8 @@
    <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>56</x>
-     <y>36</y>
+     <x>812</x>
+     <y>428</y>
     </hint>
     <hint type="destinationlabel">
      <x>247</x>
@@ -239,5 +258,41 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>Right</sender>
+   <signal>clicked()</signal>
+   <receiver>BorrowDialog</receiver>
+   <slot>borrowList()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>794</x>
+     <y>228</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>784</x>
+     <y>133</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Left</sender>
+   <signal>clicked()</signal>
+   <receiver>BorrowDialog</receiver>
+   <slot>returnList()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>791</x>
+     <y>266</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>778</x>
+     <y>304</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>borrowList()</slot>
+  <slot>returnList()</slot>
+ </slots>
 </ui>

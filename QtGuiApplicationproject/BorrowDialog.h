@@ -21,4 +21,7 @@ public:
 	~BorrowDialog();
 	void initialize(LoanControl* arg);
 	void updateTable();
+public slots:
+	void borrowList();
+	void returnList();
 };

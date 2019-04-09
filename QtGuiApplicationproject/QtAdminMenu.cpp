@@ -24,7 +24,6 @@ QtAdminMenu::QtAdminMenu(QWidget *parent)
 	for (int i = 0; i < 2; i++)
 		for (int j = 0; j < 5; j++)
 			Layout[i][j]->installEventFilter(this);
-	keyboardmode = false;
 }
 
 QtAdminMenu::~QtAdminMenu()
@@ -35,6 +34,7 @@ QtAdminMenu::~QtAdminMenu()
 void QtAdminMenu::initialize(LoanControl * arg)
 {
 	loanControler = arg;
+	keyboardmode = false;
 }
 
 void QtAdminMenu::keyPressEvent(QKeyEvent * event)
@@ -111,22 +111,27 @@ void QtAdminMenu::importCampEquipment()
 	menu.initialize(this);
 	menu.exec();
 	this->show();
+	Layout[x][y]->setFocus();
 }
 
 void QtAdminMenu::exportCampEquipment()
 {
+	Layout[x][y]->setFocus();
 }
 
 void QtAdminMenu::exportLoanRecords()
 {
+	Layout[x][y]->setFocus();
 }
 
 void QtAdminMenu::displayLoanRecords()
 {
+	Layout[x][y]->setFocus();
 }
 
 void QtAdminMenu::importUsers()
 {
+	Layout[x][y]->setFocus();
 }
 
 void QtAdminMenu::displayEquipmentAdmin() {
@@ -135,4 +140,5 @@ void QtAdminMenu::displayEquipmentAdmin() {
 	EquipmentMenu->initialize(loanControler);
 	EquipmentMenu->exec();
 	this->show();
+	Layout[x][y]->setFocus();
 }

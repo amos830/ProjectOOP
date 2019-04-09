@@ -24,12 +24,12 @@ EquipmentResult LoanControl::getEquipment(string type,bool Admin)
 	EquipmentResult results;
 	results.size = 0;
 	for (int i = 0; i < this->NoOfEquipments; i++)
-		if ((EquipmentList[i]->getType() == type)&&(Admin||(EquipmentList[i]->getCondition()=="good" && EquipmentList[i]->getStatus()=="in")))
+		if ((type==""||(EquipmentList[i]->getType() == type))&&(Admin||(EquipmentList[i]->getCondition()=="good" && EquipmentList[i]->getStatus()=="in")))
 			results.size++;
 	results.List = new Equipment*[results.size];
 	int temp = 0;
 	for (int i = 0; i < this->NoOfEquipments; i++)
-		if ((EquipmentList[i]->getType() == type) && (Admin || (EquipmentList[i]->getCondition() == "good" && EquipmentList[i]->getStatus() == "in"))) {
+		if ((type == "" || (EquipmentList[i]->getType() == type)) && (Admin || (EquipmentList[i]->getCondition() == "good" && EquipmentList[i]->getStatus() == "in"))) {
 			results.List[temp]= &(*EquipmentList[i]);
 			temp++;
 		}
