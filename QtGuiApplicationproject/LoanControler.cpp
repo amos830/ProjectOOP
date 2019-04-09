@@ -36,9 +36,16 @@ EquipmentResult LoanControl::getEquipment(string type,bool Admin)
 	return results;
 }
 
+
+
 void LoanControl::setCurrentUser(User * arg)
 {
 	currentUser = arg;
+}
+
+void LoanControl::BorrowItem(std::string id)
+{
+
 }
 
 
