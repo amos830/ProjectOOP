@@ -53,8 +53,12 @@ void LoanControl::setCurrentUser(User * arg)
 	currentUser = arg;
 }
 
-void LoanControl::BorrowItem(std::string id)
+void LoanControl::BorrowItem(string id)
 {
+	Equipment* item = get1Equipment(id);
+	string name = item->getName;
+	string nameOfBorrower = CurrentUser->getName;
+	LoanRecord temp(name, nameOfBorrower, id);
 
 }
 
