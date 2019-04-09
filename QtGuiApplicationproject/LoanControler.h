@@ -5,6 +5,8 @@
 #include "User.h"
 #include "Equipment.h"
 #include "Struct.h"
+#include "LoanRecord.h"
+
 class LoanControl
 {
 public:
