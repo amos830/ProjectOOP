@@ -25,4 +25,5 @@ public slots:
 	void borrowList();
 	void returnList();
 	void reset();
+	void confirm();
 };

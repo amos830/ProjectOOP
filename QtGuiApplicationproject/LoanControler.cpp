@@ -7,7 +7,7 @@ LoanControl::LoanControl()
 	isSucessful = 1;
 	FileHandiler::fileRead(EquipmentList, NoOfEquipments, this);
 	FileHandiler::fileRead(UserList, NoOfUsers, this);
-	currentUser = nullptr;
+	CurrentUser = nullptr;
 }
 
 
@@ -50,7 +50,7 @@ Equipment * LoanControl::get1Equipment(string ID)
 
 void LoanControl::setCurrentUser(User * arg)
 {
-	currentUser = arg;
+	CurrentUser = arg;
 }
 
 bool LoanControl::BorrowItem(string id)
@@ -61,6 +61,16 @@ bool LoanControl::BorrowItem(string id)
 	records->push_back(LoanRecord(name, nameOfBorrower, id));
 	return 0;
 }
+
+bool LoanControl::BorrowItems(std::vector<std::string> list)
+{
+	if (list.size() > CurrentUser->getQuota())
+		return 1;
+	for each (std::string item in list) {
+		BorrowItem(item);
+	}
+}
+
 
 
 

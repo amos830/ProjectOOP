@@ -18,6 +18,7 @@ public:
 		string getPassword();
 		string getName();
 		string getAddress();
+		int getQuota();
 };
 class Scout
 	:public User

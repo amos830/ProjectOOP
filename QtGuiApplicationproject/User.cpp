@@ -37,6 +37,11 @@ string User::getAddress()
 	return address;
 }
 
+int User::getQuota()
+{
+	return 0;
+}
+
 
 Scout::Scout(string userID, string name,string section,string dateOfBirth, string address, string rank):User(userID, name,section,dateOfBirth, address)
 {

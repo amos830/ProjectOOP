@@ -26,7 +26,8 @@ public:
 	int NoOfLanterns;
 	int NoOfUsers;
 	bool BorrowItem(std::string id);
-	User* currentUser;
+	bool BorrowItems(std::vector<std::string> list);
+	//User* currentUser;
 	std::shared_ptr<std::vector<LoanRecord>> records;
 };
 #endif

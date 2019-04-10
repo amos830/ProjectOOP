@@ -131,3 +131,22 @@ void BorrowDialog::reset()
 	BorrowedList->clear();
 	updateTable();
 }
+
+void BorrowDialog::confirm()
+{
+	std::vector<std::string> list;
+	for (int i = 0; i < BorrowedList->count(); i++)
+		if (BorrowedList->item(i)->foreground() == Qt::red)
+			list.push_back(BorrowedList->item(i)->text().toStdString());
+	if (loanController->BorrowItems(list))
+	{
+		//show error cannot borrow
+	}
+	/*
+		for(int i=0;i<AvalibleLIst->count;i++)
+			{
+				if (BorrowedList->item(i)->foreground == Qt::red)
+			loanController->BorrowItem(BorrowedList->item(i)->text().toStdString());
+			}
+	*/
+}

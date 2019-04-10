@@ -11,7 +11,7 @@ Project::Project(QWidget *parent)
 void Project::setLoanControler(LoanControl * args)
 {
 	loanControl = args;
-	Welcome->setText("Welcome " + QString::fromStdString(loanControl->currentUser->getName()));
+	Welcome->setText("Welcome " + QString::fromStdString(loanControl->CurrentUser->getName()));
 }
 void Project::displayLoanRecord()
 {
