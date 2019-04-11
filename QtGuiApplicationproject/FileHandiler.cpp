@@ -3,6 +3,10 @@
 #include "LoanControler.h"
 #include <fstream>
 #include "ErrorAlert.h"
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QFile>
 using std::fstream;
 
 
@@ -12,7 +16,7 @@ void FileHandiler::fileRead(Equipment**& List, int& Num,LoanControl* loanControl
 	loanControler->EquipmentList = nullptr;
 	if (fileRead("camp_equipment.txt", List, Num, loanControler)) {
 		ErrorAlert error;
-		error.initialize(true, "Fatal Error:Base Equipment File Import Error, Please Check the File");
+		error.initialize(true, "Fatal Error:Base Equipment File Import Error, Please Check the File",loanControler);
 		error.exec();
 	}
 }
@@ -145,5 +149,33 @@ int FileHandiler::fileRead(string fileLocation, User **& List, int & Num, LoanCo
 	}
 	return 0;
 }
+
+void FileHandiler::fileWrite(Equipment **& List, int & Num, LoanControl * loanControler)
+{
+}
+
+int FileHandiler::fileWrite(string fileLocation, Equipment **& List, int & Num, LoanControl * loanControler)
+{
+	return 0;
+}
+
+void FileHandiler::fileWrite(std::shared_ptr<LoanRecord> List)
+{
+	
+}
+
+int FileHandiler::fileWrite(std::shared_ptr<LoanRecord> List, string fileLocation)
+{
+	return 0;
+}
+
+void FileHandiler::fileRead()
+{
+	QFile loanRecordFile("LoanRecord.json");
+	if(!loanRecordFile.open(QIODevice::ReadOnly))	
+		return;
+}
+
+
 
 

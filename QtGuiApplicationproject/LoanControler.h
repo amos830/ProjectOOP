@@ -11,7 +11,7 @@
 class LoanControl
 {
 public:
-	bool isSucessful;
+	static bool isSucessful;
 	Equipment** EquipmentList;
 	User* CurrentUser;
 	User** UserList;
@@ -26,8 +26,10 @@ public:
 	int NoOfLanterns;
 	int NoOfUsers;
 	bool BorrowItem(std::string id);
+	LoanRecord findLoanRecordItem(string ID,string name);
+	Equipment * findEquipmentByID(string ID);
 	bool BorrowItems(std::vector<std::string> list);
-	//User* currentUser;
 	std::shared_ptr<std::vector<LoanRecord>> records;
+	static bool compareLoanRecords(LoanRecord loan1,LoanRecord loan2);
 };
 #endif

@@ -35,7 +35,7 @@ void ImportequipmentMenu::importEquipment()
 		if (FileHandiler::fileRead(DisplayFile->text().toStdString(), Parent->loanControler->EquipmentList, Parent->loanControler->NoOfEquipments, Parent->loanControler))
 		{
 			ErrorAlert Error;
-			Error.initialize(false,"Import Failed, Reverting to original Equipment file");
+			Error.initialize(false,"Import Failed, Reverting to original Equipment file",nullptr);
 			Error.exec();
 			FileHandiler::fileRead(Parent->loanControler->EquipmentList, Parent->loanControler->NoOfEquipments, Parent->loanControler);
 		}

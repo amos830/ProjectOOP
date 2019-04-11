@@ -14,5 +14,8 @@ int main(int argc, char *argv[])
 	//w.show();
 	ThankYouDialog thank(nullptr);
 	QObject::connect(&a, SIGNAL(aboutToQuit()),&thank,SLOT(activateTimer()));
-	return a.exec();
+	if (loanControler->isSucessful)
+		return a.exec();
+	else
+		return 1;
 }

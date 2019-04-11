@@ -1,12 +1,13 @@
 #include "LoanControler.h"
 #include "QTLoginWindow.h"
 #include "LoanRecord.h"
-
+#include <QDate>
+bool LoanControl::isSucessful = true;
 LoanControl::LoanControl()
 {
-	isSucessful = 1;
 	FileHandiler::fileRead(EquipmentList, NoOfEquipments, this);
 	FileHandiler::fileRead(UserList, NoOfUsers, this);
+	//std::sort(records->begin(), records->end(), LoanControl::compareLoanRecords);
 	CurrentUser = nullptr;
 }
 
@@ -61,6 +62,20 @@ bool LoanControl::BorrowItem(string id)
 	records->push_back(LoanRecord(name, nameOfBorrower, id));
 	return 0;
 }
+LoanRecord LoanControl::findLoanRecordItem(string ID,string name)
+{
+	for (LoanRecord &record : *records)
+		if (record.getId() == ID && record.getNameOfBorrower() == name)
+			return record;
+	return LoanRecord(NULL,NULL,NULL);
+}
+
+Equipment* LoanControl::findEquipmentByID(string ID) {
+	for (int i = 0; i < NoOfEquipments; i++)
+		if (EquipmentList[i]->getItemID() == ID)
+			return EquipmentList[i];
+	return nullptr;
+}
 
 bool LoanControl::BorrowItems(std::vector<std::string> list)
 {
@@ -69,6 +84,14 @@ bool LoanControl::BorrowItems(std::vector<std::string> list)
 	for each (std::string item in list) {
 		BorrowItem(item);
 	}
+	return 0;
+}
+
+bool LoanControl::compareLoanRecords(LoanRecord loan1, LoanRecord loan2) //comparator
+{
+	if (QDate::fromString(QString::fromStdString(loan1.getLoanDate()), "ddMMyyyy") == QDate::fromString(QString::fromStdString(loan2.getLoanDate())))
+		return std::stoi(loan1.getId().substr(1, 3)) < std::stoi(loan2.getId().substr(1, 3));
+	else return QDate::fromString(QString::fromStdString(loan1.getLoanDate()), "ddMMyyyy") < QDate::fromString(QString::fromStdString(loan2.getLoanDate()));
 }
 
 
