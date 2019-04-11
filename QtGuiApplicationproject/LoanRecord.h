@@ -10,15 +10,19 @@ class LoanRecord {
 	string returnDate;
 	string status;
 public:
+	//getter
 	string getReturnDate();
 	string getLoanDate();
 	string getId();
 	string getName();
 	string getStatus();
 	string getNameOfBorrower();
+	//setter
 	void setReturnDate();
 	void setStatus(string status);
+	//constructor
 	LoanRecord(string name, string nameOfBorrower, string id);
+	//destructor
 	~LoanRecord();
 };
 #endif
