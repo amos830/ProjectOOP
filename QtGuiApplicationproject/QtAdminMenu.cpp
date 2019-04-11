@@ -131,6 +131,11 @@ void QtAdminMenu::displayLoanRecords()
 
 void QtAdminMenu::importUsers()
 {
+	this->hide();
+	ImportUserMenu menu(this);
+	menu.initialize(this);
+	menu.exec();
+	this->show();
 	Layout[x][y]->setFocus();
 }
 
