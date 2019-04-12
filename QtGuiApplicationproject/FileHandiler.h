@@ -18,6 +18,7 @@ public:
 	static void fileWrite(Equipment**& List, int& Num, LoanControl* loanControler);
 	static int fileWrite(string fileLocation, Equipment**& List, int& Num, LoanControl* loanControler);
 	static void fileWrite(std::vector<LoanRecord> List);
+	static void fileWrite(std::vector<LoanRecord> List,string filelocation);
 	static int fileWrite(std::shared_ptr<LoanRecord> List,string fileLocation);
 	static void fileRead();
 };

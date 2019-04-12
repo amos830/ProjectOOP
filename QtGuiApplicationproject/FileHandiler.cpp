@@ -185,6 +185,10 @@ void FileHandiler::fileWrite(std::vector<LoanRecord> List)
 	}
 }
 
+void FileHandiler::fileWrite(std::vector<LoanRecord> List, string filelocation)
+{
+}
+
 int FileHandiler::fileWrite(std::shared_ptr<LoanRecord> List, string fileLocation)
 {
 	return 0;
