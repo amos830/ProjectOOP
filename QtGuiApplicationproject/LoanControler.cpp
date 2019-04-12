@@ -7,13 +7,16 @@ LoanControl::LoanControl()
 {
 	FileHandiler::fileRead(EquipmentList, NoOfEquipments, this);
 	FileHandiler::fileRead(UserList, NoOfUsers, this);
-	//std::sort(records->begin(), records->end(), LoanControl::compareLoanRecords);
+	FileHandiler::fileRead(this);
+	//std::sort(records.begin(), records.end(), LoanControl::compareLoanRecords);
 	CurrentUser = nullptr;
 }
 
 
 LoanControl::~LoanControl()
 {
+	FileHandiler::fileWrite(EquipmentList,NoOfEquipments,this);
+	FileHandiler::fileWrite(records);
 	for (int i = 0; i < this->NoOfEquipments; i++)
 		delete EquipmentList[i];
 	for (int i = 0; i < this->NoOfUsers; i++)
@@ -52,6 +55,7 @@ Equipment * LoanControl::get1Equipment(string ID)
 void LoanControl::setCurrentUser(User * arg)
 {
 	CurrentUser = arg;
+	CurrentUser->setQuota(amountBorrowed());
 }
 
 bool LoanControl::BorrowItem(string id)

@@ -4,6 +4,11 @@
 
 
 
+void User::setQuota(int loaned)
+{
+	quota = getMaxAmountOfItems() - loaned;
+}
+
 User::User(string userID, string name,string section,string dateOfBirth, string address)
 {
 	this->userID = userID;

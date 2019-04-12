@@ -3,6 +3,8 @@
 using std::string;
 class User
 {
+	void setQuota(int loaned);
+	friend class LoanControl;
 protected:
 	string userID;
 	string name;

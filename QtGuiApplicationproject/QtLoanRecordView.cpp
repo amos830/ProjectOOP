@@ -35,6 +35,13 @@ void QtLoanRecordView::updateTable(bool admin) {
 			table->setItem(i, 4, new QStandardItem(QString::fromStdString(controller->records.at(i).getReturnDate())));
 			table->setItem(i, 5, new QStandardItem(QString::fromStdString(controller->records.at(i).getStatus())));
 		}
+		LoanRecordView->setModel(table);
+		LoanRecordView->horizontalHeader()->setStretchLastSection(true);
+		LoanRecordView->resizeColumnsToContents();
+		LoanRecordView->setSelectionBehavior(QAbstractItemView::SelectRows);
+		LoanRecordView->verticalHeader()->hide();
+		LoanRecordView->setSelectionMode(QAbstractItemView::SingleSelection);
+		LoanRecordView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 	}
 	else {
 		int j=0;
@@ -55,7 +62,6 @@ void QtLoanRecordView::updateTable(bool admin) {
 				j++;
 			}
 		}
-	}
 		LoanRecordView->setModel(table);
 		LoanRecordView->horizontalHeader()->setStretchLastSection(true);
 		LoanRecordView->resizeColumnsToContents();
@@ -63,4 +69,6 @@ void QtLoanRecordView::updateTable(bool admin) {
 		LoanRecordView->verticalHeader()->hide();
 		LoanRecordView->setSelectionMode(QAbstractItemView::SingleSelection);
 		LoanRecordView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+	}
+
 }
