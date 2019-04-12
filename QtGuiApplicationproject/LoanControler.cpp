@@ -65,7 +65,7 @@ bool LoanControl::BorrowItem(string id)
 LoanRecord LoanControl::findLoanRecordItem(string ID,string name)
 {
 	for (LoanRecord &record : *records)
-		if (record.getId() == ID && record.getNameOfBorrower() == name && record.getStatus=="out")
+		if (record.getId() == ID && record.getNameOfBorrower() == name && record.getStatus()=="out")
 			return record;
 	return LoanRecord(NULL,NULL,NULL);
 }
