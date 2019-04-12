@@ -104,12 +104,5 @@ string Scouter::getRank()
 
 int Scouter::getMaxAmountOfItems()
 {
-	string rank = getRank();
-
-	if (rank == "members")
-		return 1;
-	else
-		return 3;
-
 	return 0;
 }
