@@ -19,6 +19,7 @@ public:
 		string getName();
 		string getAddress();
 		int getQuota();
+		virtual int getMaxAmountOfItems() = 0;
 };
 class Scout
 	:public User
