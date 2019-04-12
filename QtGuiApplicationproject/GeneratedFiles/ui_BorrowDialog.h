@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'BorrowDialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.2
+** Created by: Qt User Interface Compiler version 5.12.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -219,6 +219,7 @@ public:
         QObject::connect(Right, SIGNAL(clicked()), BorrowDialog, SLOT(borrowList()));
         QObject::connect(Left, SIGNAL(clicked()), BorrowDialog, SLOT(returnList()));
         QObject::connect(Reset, SIGNAL(clicked()), BorrowDialog, SLOT(reset()));
+        QObject::connect(ConfirmButton, SIGNAL(clicked()), BorrowDialog, SLOT(confirm()));
 
         tabWidget->setCurrentIndex(0);
 
