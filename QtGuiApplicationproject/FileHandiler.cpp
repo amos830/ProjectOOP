@@ -1,4 +1,4 @@
- #include "FileHandiler.h"
+#include "FileHandiler.h"
 #include "QtloginWindow.h"
 #include "LoanControler.h"
 #include "LoanRecord.h"
@@ -172,7 +172,7 @@ int FileHandiler::fileWrite(string fileLocation, Equipment **& List, int & Num, 
 			<< ((Stove*)(loanControler->EquipmentList[ii]))->getItemType() << ((Stove*)(loanControler->EquipmentList[ii]))->getFuelType() << "/n";
 		if (loanControler->EquipmentList[ii]->getType() == "lantern")
 			TargetFile << ((Lantern*)(loanControler->EquipmentList[ii]))->getItemID() << "|" << ((Lantern*)(loanControler->EquipmentList[ii]))->getName() << "|" << ((Lantern*)(loanControler->EquipmentList[ii]))->getBrand() << "|" << "lantern" << "|" << ((Lantern*)(loanControler->EquipmentList[ii]))->getDateOfPurchase() << "|" << ((Lantern*)(loanControler->EquipmentList[ii]))->getCondition() << "|" << ((Lantern*)(loanControler->EquipmentList[ii]))->getStatus() << "|"
-			<< ((Lantern*)(loanControler->EquipmentList[ii]))->getLanternSize() << ((Lantern*)(loanControler->EquipmentList[ii]))->getItemType() << ((Lantern*)(loanControler->EquipmentList[ii]))->getFuelType() <<"/n";
+			<< ((Lantern*)(loanControler->EquipmentList[ii]))->getLanternSize() << ((Lantern*)(loanControler->EquipmentList[ii]))->getItemType() << ((Lantern*)(loanControler->EquipmentList[ii]))->getFuelType() << "/n";
 	}
 	return 0;
 }
@@ -190,7 +190,7 @@ void FileHandiler::fileWrite(std::vector<LoanRecord> List, string filelocation)
 {
 	fstream TargetFile(filelocation, std::ofstream::out);
 	for (int ii = 0; ii, List.size(); ii++) {
-			TargetFile << List.at(ii).getReturnDate() << "|"
+		TargetFile << List.at(ii).getReturnDate() << "|"
 			<< List.at(ii).getLoanDate() << "|"
 			<< List.at(ii).getId() << "|"
 			<< List.at(ii).getName() << "|"
@@ -204,9 +204,44 @@ int FileHandiler::fileWrite(std::shared_ptr<LoanRecord> List, string fileLocatio
 	return 0;
 }
 
-void FileHandiler::fileRead()
+void FileHandiler::fileRead(LoanControl* loancontroler)
 {
-	QFile loanRecordFile("LoanRecord.json");
-	if (!loanRecordFile.open(QIODevice::ReadOnly))
-		return;
+	fstream TargetFile("loanrecord.txt", std::ifstream::in);
+	(loancontroler->records)->clear();
+
+	int Num = 0;
+	string temp;
+
+	while (getline(TargetFile, temp))
+	{
+		if (temp.empty())
+			continue;
+		else
+			Num++;
+	}
+
+	for (int i = 0; i < Num; i++)
+	{
+		while (getline(TargetFile, temp))
+		{
+			if (temp.empty())
+				continue;
+			else
+			{
+				string returnDate(temp.substr(0, temp.find("|")));
+				temp.erase(0, temp.find("|") + 1);
+				string loanDate(temp.substr(0, temp.find("|")));
+				temp.erase(0, temp.find("|") + 1);
+				string id(temp.substr(0, temp.find("|")));
+				temp.erase(0, temp.find("|") + 1);
+				string name(temp.substr(0, temp.find("|")));
+				temp.erase(0, temp.find("|") + 1);
+				string status(temp.substr(0, temp.find("|")));
+				temp.erase(0, temp.find("|") + 1);
+				loancontroler->records->push_back(LoanRecord(name, temp, id, returnDate, loanDate, status));
+			}
+		}
+	}
 }
+
+
