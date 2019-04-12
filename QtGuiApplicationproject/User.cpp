@@ -99,6 +99,8 @@ Scouter::~Scouter()
 
 string Scouter::getRank()
 {
+
+
 	return rank;
 }
 
@@ -108,6 +110,8 @@ int Scouter::getMaxAmountOfItems()
 
 	if (rank == "members")
 		return 1;
+	else if (rank == "Rover scout" || rank == "scouters")
+        return 5;
 	else
 		return 3;
 
