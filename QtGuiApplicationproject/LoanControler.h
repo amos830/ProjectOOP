@@ -26,7 +26,7 @@ public:
 	int NoOfLanterns;
 	int NoOfUsers;
 	bool BorrowItem(std::string id);
-	LoanRecord findLoanRecordItem(string ID,string name);
+	LoanRecord* findLoanRecordItem(string ID,string name);
 	Equipment * findEquipmentByID(string ID);
 	bool BorrowItems(std::vector<std::string> list);
 	void LoanControl::ReturnItem(string id,string name);

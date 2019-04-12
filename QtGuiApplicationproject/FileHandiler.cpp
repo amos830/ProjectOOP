@@ -10,6 +10,8 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QFile>
+#include <QVector>
+#include <QList>
 using std::fstream;
 
 
@@ -174,13 +176,12 @@ int FileHandiler::fileWrite(string fileLocation, Equipment **& List, int & Num, 
 	return 0;
 }
 
-void FileHandiler::fileWrite(std::shared_ptr<LoanRecord> List)
+void FileHandiler::fileWrite(std::vector<LoanRecord> List)
 {
-	QJsonObject jsonObj;
-
-	for (int i = 0; int i < LoanControler->records.size(); i++)
+	QJsonDocument test;
+	for (int i = 0; i < List.size(); i++)
 	{
-		jsonObj.insert(records.at(i));
+		//test.frQList<LoanRecord>::fromVector(QVector<LoanRecord>::fromStdVector(List));
 	}
 }
 
