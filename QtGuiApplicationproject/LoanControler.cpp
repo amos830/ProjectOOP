@@ -60,6 +60,7 @@ bool LoanControl::BorrowItem(string id)
 	string name = item->getName();
 	string nameOfBorrower = CurrentUser->getName();
 	records.push_back(LoanRecord(name, nameOfBorrower, id));
+	CurrentUser->borrowItem();
 	return 0;
 }
 LoanRecord* LoanControl::findLoanRecordItem(string ID,string name)
@@ -92,7 +93,7 @@ void LoanControl::ReturnItem(string id, string name) {
 	findLoanRecordItem(id, name)->setReturnDate();
 	findLoanRecordItem(id, name)->setStatus("in");
 	findEquipmentByID(id)->setStatus("in");
-	//CurrentUser.
+	CurrentUser->returnItem();
 }
 
 bool LoanControl::compareLoanRecords(LoanRecord loan1, LoanRecord loan2) //comparator
