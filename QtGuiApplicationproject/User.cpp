@@ -1,5 +1,5 @@
 #include "User.h"
-
+#include "LoanControler.h"
 
 
 
@@ -45,7 +45,7 @@ string User::getAddress()
 
 int User::getQuota()
 {
-	return 0;
+	return quota;
 }
 
 void User::borrowItem()
@@ -87,7 +87,7 @@ int Scout::getMaxAmountOfItems()
 
 RScout::RScout(string userID, string name,string section,string dateOfBirth, string address) :User(userID, name, section, dateOfBirth, address)
 {
-    quota = getMaxAmountOfItems();
+	quota = getMaxAmountOfItems();
 }
 
 RScout::~RScout()
@@ -100,7 +100,7 @@ int RScout::getMaxAmountOfItems() {
 
 VScout::VScout(string userID, string name,string section,string dateOfBirth, string address) :User(userID, name, section, dateOfBirth, address)
 {
-   quota = getMaxAmountOfItems();
+	quota = getMaxAmountOfItems();
 }
 
 VScout::~VScout()

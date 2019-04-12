@@ -61,6 +61,7 @@ bool LoanControl::BorrowItem(string id)
 	string nameOfBorrower = CurrentUser->getName();
 	records.push_back(LoanRecord(name, nameOfBorrower, id));
 	CurrentUser->borrowItem();
+	findEquipmentByID(id)->setStatus("out");
 	return 0;
 }
 LoanRecord* LoanControl::findLoanRecordItem(string ID,string name)
@@ -82,18 +83,25 @@ bool LoanControl::BorrowItems(std::vector<std::string> list)
 {
 	if (list.size() > CurrentUser->getQuota())
 		return 1;
-	for each (std::string item in list) {
-		BorrowItem(item);
-	}
-
+	for(int i=0;i<list.size();i++)
+		BorrowItem(list.at(i));
 	return 0;
 }
 
 void LoanControl::ReturnItem(string id, string name) {
 	findLoanRecordItem(id, name)->setReturnDate();
-	findLoanRecordItem(id, name)->setStatus("in");
+	findLoanRecordItem(id, name)->setStatus("returned");
 	findEquipmentByID(id)->setStatus("in");
 	CurrentUser->returnItem();
+}
+
+int LoanControl::amountBorrowed()
+{
+	int result = 0;
+	for (int i = 0; i < records.size(); i++)
+		if (records.at(i).getName() == CurrentUser->getName() && records.at(i).getStatus() == "out")
+			result++;
+	return result;
 }
 
 bool LoanControl::compareLoanRecords(LoanRecord loan1, LoanRecord loan2) //comparator

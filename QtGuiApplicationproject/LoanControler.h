@@ -31,6 +31,7 @@ public:
 	bool BorrowItems(std::vector<std::string> list);
 	void LoanControl::ReturnItem(string id,string name);
 	std::vector<LoanRecord> records;
+	int amountBorrowed();
 	static bool compareLoanRecords(LoanRecord loan1,LoanRecord loan2);
 };
 #endif

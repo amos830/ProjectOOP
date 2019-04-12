@@ -27,7 +27,7 @@ void QtLoanRecordView::updateTable(bool admin) {
 		table->setHorizontalHeaderItem(3, new QStandardItem(tr("Name Of Borrower")));//admin
 		table->setHorizontalHeaderItem(4, new QStandardItem(tr("Return Date")));
 		table->setHorizontalHeaderItem(5, new QStandardItem(tr("Status")));//admin
-		for (int i = 0; i < controller->records.size(), !controller->records.empty(); i++) {
+		for (int i = 0; i < controller->records.size()&&!controller->records.empty(); i++) {
 			table->setItem(i, 0, new QStandardItem(QString::fromStdString(controller->records.at(i).getLoanDate())));
 			table->setItem(i, 1, new QStandardItem(QString::fromStdString(controller->records.at(i).getId())));
 			table->setItem(i, 2, new QStandardItem(QString::fromStdString(controller->records.at(i).getName())));
@@ -39,19 +39,19 @@ void QtLoanRecordView::updateTable(bool admin) {
 	else {
 		int j=0;
 		for (int i = 0; i < controller->records.size(); i++)
-			if (controller->records.at(i).getName() == controller->CurrentUser->getName() && controller->records.at(i).getStatus() == "out");
-		j++;
+			if (controller->records.at(i).getNameOfBorrower() == controller->CurrentUser->getName() && controller->records.at(i).getStatus() == "out");
+				j++;
 		table = new QStandardItemModel(j, 4, this);
 		table->setHorizontalHeaderItem(0, new QStandardItem(tr("Loan Date")));
 		table->setHorizontalHeaderItem(1, new QStandardItem(tr("ItemID")));
 		table->setHorizontalHeaderItem(2, new QStandardItem(tr("Item Name")));
 		table->setHorizontalHeaderItem(3, new QStandardItem(tr("Return Date")));
-		for (int i = 0; i < controller->records.size(), !controller->records.empty(); i++) {
-			if (controller->records.at(i).getName() == controller->CurrentUser->getName() && controller->records.at(i).getStatus() == "out") {
-				table->setItem(j, 0, new QStandardItem(QString::fromStdString(controller->records.at(i).getLoanDate())));
-				table->setItem(j, 1, new QStandardItem(QString::fromStdString(controller->records.at(i).getId())));
-				table->setItem(j, 2, new QStandardItem(QString::fromStdString(controller->records.at(i).getName())));
-				table->setItem(j, 3, new QStandardItem(QString::fromStdString(controller->records.at(i).getReturnDate())));
+		for (int i = 0; i < controller->records.size()&&!controller->records.empty(); i++) {
+			if (controller->records.at(i).getNameOfBorrower() == controller->CurrentUser->getName()) {
+				table->setItem(j-1, 0, new QStandardItem(QString::fromStdString(controller->records.at(i).getLoanDate())));
+				table->setItem(j-1, 1, new QStandardItem(QString::fromStdString(controller->records.at(i).getId())));
+				table->setItem(j-1, 2, new QStandardItem(QString::fromStdString(controller->records.at(i).getName())));
+				table->setItem(j-1, 3, new QStandardItem(QString::fromStdString(controller->records.at(i).getReturnDate())));
 				j++;
 			}
 		}

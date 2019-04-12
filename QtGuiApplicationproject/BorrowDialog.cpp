@@ -107,7 +107,7 @@ void BorrowDialog::updateTable() {
 		AvalibleLIst->addItem(QString::fromStdString(Avalible.List[i]->getItemID()));
 	}
 	AvalibleLIst->setSelectionMode(QAbstractItemView::MultiSelection);
-	for(int i=0;i<loanController->records.size(), !loanController->records.empty();i++)
+	for(int i=0;i<loanController->records.size()&&!loanController->records.empty();i++)
 		if(loanController->records.at(i).getStatus()=="out"&&loanController->records.at(i).getNameOfBorrower()==loanController->CurrentUser->getName())
 			BorrowedList->addItem(QString::fromStdString(loanController->records.at(i).getId()));
 	BorrowedList->setSelectionMode(QAbstractItemView::MultiSelection);
