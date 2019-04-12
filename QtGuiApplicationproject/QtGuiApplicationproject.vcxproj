@@ -118,6 +118,8 @@
     <ClCompile Include="DropDisplayFile.cpp" />
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="ErrorAlert.cpp" />
+    <ClCompile Include="exportEquipmentFile.cpp" />
+    <ClCompile Include="ExportFileDialog.cpp" />
     <ClCompile Include="FileHandiler.cpp" />
     <ClCompile Include="ImportequipmentMenu.cpp" />
     <ClCompile Include="LoanControler.cpp" />
@@ -137,6 +139,8 @@
     <QtUic Include="BorrowDialog.ui" />
     <QtUic Include="ChangeConditionUI.ui" />
     <QtUic Include="ErrorAlert.ui" />
+    <QtUic Include="exportEquipmentFile.ui" />
+    <QtUic Include="ExportFileDialog.ui" />
     <QtUic Include="ImportequipmentMenu.ui" />
     <QtUic Include="Project.ui" />
     <QtUic Include="QtAdminMenu.ui" />
@@ -156,6 +160,8 @@
     <ClInclude Include="DropDisplayFile.h" />
     <ClInclude Include="Equipment.h" />
     <QtMoc Include="ErrorAlert.h" />
+    <QtMoc Include="ExportFileDialog.h" />
+    <QtMoc Include="exportEquipmentFile.h" />
     <ClInclude Include="FileHandiler.h" />
     <QtMoc Include="ImportequipmentMenu.h" />
     <ClInclude Include="LoanControler.h" />
