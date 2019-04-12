@@ -65,7 +65,7 @@ bool LoanControl::BorrowItem(string id)
 LoanRecord LoanControl::findLoanRecordItem(string ID,string name)
 {
 	for (LoanRecord &record : *records)
-		if (record.getId() == ID && record.getNameOfBorrower() == name)
+		if (record.getId() == ID && record.getNameOfBorrower() == name && record.getStatus=="out")
 			return record;
 	return LoanRecord(NULL,NULL,NULL);
 }
@@ -85,6 +85,13 @@ bool LoanControl::BorrowItems(std::vector<std::string> list)
 		BorrowItem(item);
 	}
 	return 0;
+}
+
+void LoanControl::ReturnItem(string id, string name) {
+	findLoanRecordItem(id, name).setReturnDate();
+	findLoanRecordItem(id, name).setStatus("in");
+	findEquipmentByID(id)->setStatus("in");
+
 }
 
 bool LoanControl::compareLoanRecords(LoanRecord loan1, LoanRecord loan2) //comparator

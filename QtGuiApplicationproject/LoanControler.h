@@ -29,6 +29,7 @@ public:
 	LoanRecord findLoanRecordItem(string ID,string name);
 	Equipment * findEquipmentByID(string ID);
 	bool BorrowItems(std::vector<std::string> list);
+	void LoanControl::ReturnItem(string id,string name);
 	std::shared_ptr<std::vector<LoanRecord>> records;
 	static bool compareLoanRecords(LoanRecord loan1,LoanRecord loan2);
 };
