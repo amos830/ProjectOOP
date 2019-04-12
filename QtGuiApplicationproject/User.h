@@ -29,6 +29,7 @@ public:
 	Scout(string userID, string name,string section,string dateOfBirth, string address,string rank);
 	~Scout();
 	string getRank();
+	int getMaxAmountOfItems();
 };
 class RScout
 	:public User
@@ -36,6 +37,7 @@ class RScout
 public:
 	RScout(string userID, string name,string section,string dateOfBirth, string address);
 	~RScout();
+	int getMaxAmountOfItems();
 };
 class VScout
 	:public User
@@ -43,6 +45,7 @@ class VScout
 public:
 	VScout(string userID, string name, string section,string dateOfBirth, string address);
 	~VScout();
+	int getMaxAmountOfItems();
 };
 class Scouter
 	:public User
@@ -52,5 +55,6 @@ public:
 	Scouter(string userID, string name,string section,string dateOfBirth, string address,string rank);
 	~Scouter();
 	string getRank();
+	int getMaxAmountOfItems();
 };
 
