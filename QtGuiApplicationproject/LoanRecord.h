@@ -22,6 +22,7 @@ public:
 	void setStatus(string status);
 	//constructor
 	LoanRecord(string name, string nameOfBorrower, string id);
+	LoanRecord(string name, string nameOfBorrower, string id, string returnDate, string loanDate, string status);
 	//destructor
 	~LoanRecord();
 };

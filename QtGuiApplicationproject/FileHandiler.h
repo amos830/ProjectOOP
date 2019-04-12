@@ -15,13 +15,12 @@ public:
 	static int fileRead(string fileLocation, Equipment**& List, int& Num, LoanControl* loanControler);//Read custom equipment file
 	static void fileRead(User**& List, int&Num, LoanControl* loanControler);
 	static int fileRead(string fileLocation, User**& List, int& Num, LoanControl* loanControler);
-	void FileHandiler::fileRead(LoanControl* loancontroler);
 	static void fileWrite(Equipment**& List, int& Num, LoanControl* loanControler);
 	static int fileWrite(string fileLocation, Equipment**& List, int& Num, LoanControl* loanControler);
 	static void fileWrite(std::vector<LoanRecord> List);
 	static void fileWrite(std::vector<LoanRecord> List,string filelocation);
 	static int fileWrite(std::shared_ptr<LoanRecord> List,string fileLocation);
-	static void fileRead();
+	static void fileRead(LoanControl* loancontroler);
 };
 
 #endif

@@ -60,6 +60,17 @@ LoanRecord::LoanRecord(string name, string nameOfBorrower, string id)
 
 }
 
+LoanRecord::LoanRecord(string name, string nameOfBorrower, string id, string returnDate, string loanDate, string status)
+{
+	this->name = name;
+	this->nameOfBorrower = nameOfBorrower;
+	this->id = id;
+	this->returnDate = returnDate;
+	this->loanDate = loanDate;
+	this->status = status;
+
+}
+
 LoanRecord::~LoanRecord()
 {
 

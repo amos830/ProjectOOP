@@ -13,6 +13,7 @@
 #include <QFile>
 #include <QVector>
 #include <QList>
+using std::string;
 using std::fstream;
 
 
