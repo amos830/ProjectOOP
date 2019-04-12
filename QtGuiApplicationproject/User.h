@@ -18,6 +18,7 @@ public:
 		string getPassword();
 		string getName();
 		string getAddress();
+		string getSection();
 		int getQuota();
 		virtual int getMaxAmountOfItems() = 0;
 };
