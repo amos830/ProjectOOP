@@ -17,6 +17,10 @@ User::~User()
 {
 }
 
+string User::getSection() {
+	return section;
+}
+
 string User::getUserID()
 {
 	return userID;
@@ -59,8 +63,14 @@ string Scout::getRank()
 
 int Scout::getMaxAmountOfItems()
 {
-	return 0;
+	if (this->getRank() == "member"){
+		return 1;
+	}
+	else if (this->getRank()=="Patrol Leader"|| this->getRank()=="Assistant Patrol Leader") {
+		return 3;
+	}
 }
+
 
 RScout::RScout(string userID, string name,string section,string dateOfBirth, string address) :User(userID, name, section, dateOfBirth, address)
 {
@@ -69,10 +79,8 @@ RScout::RScout(string userID, string name,string section,string dateOfBirth, str
 RScout::~RScout()
 {
 }
-
-int RScout::getMaxAmountOfItems()
-{
-	return 0;
+int RScout::getMaxAmountOfItems() {
+	return 5;
 }
 
 VScout::VScout(string userID, string name,string section,string dateOfBirth, string address) :User(userID, name, section, dateOfBirth, address)
@@ -83,9 +91,12 @@ VScout::~VScout()
 {
 }
 
+
 int VScout::getMaxAmountOfItems()
 {
-	return 0;
+	
+		return 3;
+
 }
 
 Scouter::Scouter(string userID, string name, string section,string dateOfBirth, string address, string rank) :User(userID, name, section, dateOfBirth, address)
@@ -106,14 +117,7 @@ string Scouter::getRank()
 
 int Scouter::getMaxAmountOfItems()
 {
-	string rank = getRank();
+	
 
-	if (rank == "members")
-		return 1;
-	else if (rank == "Rover scout" || rank == "scouters")
-        return 5;
-	else
-		return 3;
-
-	return 0;
+	return 5;
 }
