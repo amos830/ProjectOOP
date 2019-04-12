@@ -319,10 +319,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>ConfirmButton</sender>
+   <signal>clicked()</signal>
+   <receiver>BorrowDialog</receiver>
+   <slot>confirm()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>809</x>
+     <y>473</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>823</x>
+     <y>379</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>borrowList()</slot>
   <slot>returnList()</slot>
   <slot>reset()</slot>
+  <slot>confirm()</slot>
  </slots>
 </ui>

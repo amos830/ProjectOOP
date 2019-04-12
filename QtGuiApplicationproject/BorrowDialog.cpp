@@ -1,5 +1,6 @@
 #include "BorrowDialog.h"
 #include "LoanControler.h"
+#include "ErrorAlert.h"
 BorrowDialog::BorrowDialog(QWidget *parent)
 	: QDialog(parent)
 {
@@ -134,19 +135,18 @@ void BorrowDialog::reset()
 
 void BorrowDialog::confirm()
 {
+	for (int i = 0; i < AvalibleLIst->count(); i++)
+		if (AvalibleLIst->item(i)->foreground() == Qt::red)
+			loanController->ReturnItem(AvalibleLIst->item(i)->text().toStdString(),loanController->CurrentUser->getName());
 	std::vector<std::string> list;
 	for (int i = 0; i < BorrowedList->count(); i++)
 		if (BorrowedList->item(i)->foreground() == Qt::red)
 			list.push_back(BorrowedList->item(i)->text().toStdString());
 	if (loanController->BorrowItems(list))
 	{
-		//show error cannot borrow
+		ErrorAlert test(this);
+		test.initialize(false, "Number Of Item borrowed Exceed Quota,Please Select Again", nullptr);
+		test.exec();
 	}
-	/*
-		for(int i=0;i<AvalibleLIst->count;i++)
-			{
-				if (BorrowedList->item(i)->foreground == Qt::red)
-			loanController->BorrowItem(BorrowedList->item(i)->text().toStdString());
-			}
-	*/
+	reset();
 }
