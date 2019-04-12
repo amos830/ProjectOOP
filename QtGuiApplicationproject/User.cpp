@@ -57,6 +57,11 @@ string Scout::getRank()
 	return rank;
 }
 
+int Scout::getMaxAmountOfItems()
+{
+	return 0;
+}
+
 RScout::RScout(string userID, string name,string section,string dateOfBirth, string address) :User(userID, name, section, dateOfBirth, address)
 {
 }
@@ -65,12 +70,22 @@ RScout::~RScout()
 {
 }
 
+int RScout::getMaxAmountOfItems()
+{
+	return 0;
+}
+
 VScout::VScout(string userID, string name,string section,string dateOfBirth, string address) :User(userID, name, section, dateOfBirth, address)
 {
 }
 
 VScout::~VScout()
 {
+}
+
+int VScout::getMaxAmountOfItems()
+{
+	return 0;
 }
 
 Scouter::Scouter(string userID, string name, string section,string dateOfBirth, string address, string rank) :User(userID, name, section, dateOfBirth, address)
@@ -85,4 +100,9 @@ Scouter::~Scouter()
 string Scouter::getRank()
 {
 	return rank;
+}
+
+int Scouter::getMaxAmountOfItems()
+{
+	return 0;
 }
