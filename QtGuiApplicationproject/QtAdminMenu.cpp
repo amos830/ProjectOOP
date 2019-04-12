@@ -1,6 +1,7 @@
 #include "QtAdminMenu.h"
 #include "QtItemMenu.h"
 #include "ImportequipmentMenu.h"
+#include "QtLoanRecordView.h"
 QtAdminMenu::QtAdminMenu(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -126,6 +127,11 @@ void QtAdminMenu::exportLoanRecords()
 
 void QtAdminMenu::displayLoanRecords()
 {
+	hide();
+	QtLoanRecordView dialog(this);
+	dialog.initialize(loanControler,true);
+	dialog.exec();
+	show();
 	Layout[x][y]->setFocus();
 }
 

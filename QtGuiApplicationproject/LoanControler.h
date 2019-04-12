@@ -7,7 +7,7 @@
 #include "Struct.h"
 #include "LoanRecord.h"
 #include <vector>
-
+#include <memory>
 class LoanControl
 {
 public:
@@ -30,7 +30,7 @@ public:
 	Equipment * findEquipmentByID(string ID);
 	bool BorrowItems(std::vector<std::string> list);
 	void LoanControl::ReturnItem(string id,string name);
-	std::shared_ptr<std::vector<LoanRecord>> records;
+	std::vector<LoanRecord> records;
 	static bool compareLoanRecords(LoanRecord loan1,LoanRecord loan2);
 };
 #endif
