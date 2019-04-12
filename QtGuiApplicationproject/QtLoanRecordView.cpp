@@ -1,5 +1,5 @@
 #include "QtLoanRecordView.h"
-
+#include "LoanControler.h"
 QtLoanRecordView::QtLoanRecordView(QWidget *parent)
 	: QDialog(parent)
 {
@@ -8,4 +8,8 @@ QtLoanRecordView::QtLoanRecordView(QWidget *parent)
 
 QtLoanRecordView::~QtLoanRecordView()
 {
+}
+
+void QtLoanRecordView::initialize(LoanControl* arg) {
+
 }
