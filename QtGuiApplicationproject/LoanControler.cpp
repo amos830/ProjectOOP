@@ -62,13 +62,6 @@ bool LoanControl::BorrowItem(string id)
 	records->push_back(LoanRecord(name, nameOfBorrower, id));
 	return 0;
 }
-LoanRecord LoanControl::findLoanRecordItem(string ID,string name)
-{
-	for (LoanRecord &record : *records)
-		if (record.getId() == ID && record.getNameOfBorrower() == name && record.getStatus()=="out")
-			return record;
-	return LoanRecord(NULL,NULL,NULL);
-}
 
 Equipment* LoanControl::findEquipmentByID(string ID) {
 	for (int i = 0; i < NoOfEquipments; i++)
