@@ -38,8 +38,8 @@ void QtLoanRecordView::updateTable(bool admin) {
 	}
 	else {
 		int j;
-		for (int i = 0; i < controller->records.size(); i++)
-			if (controller->records.at(i));
+		//for (int i = 0; i < controller->records.size(); i++)
+			//if (controller->records.at(i));
 		table = new QStandardItemModel(controller->records.size(), 4, this);
 		table->setHorizontalHeaderItem(0, new QStandardItem(tr("Loan Date")));
 		table->setHorizontalHeaderItem(1, new QStandardItem(tr("ItemID")));
