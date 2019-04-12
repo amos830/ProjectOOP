@@ -46,6 +46,16 @@ int User::getQuota()
 	return 0;
 }
 
+void User::borrowItem()
+{
+	quota--;
+}
+
+void User::returnItem()
+{
+	quota++;
+}
+
 
 Scout::Scout(string userID, string name,string section,string dateOfBirth, string address, string rank):User(userID, name,section,dateOfBirth, address)
 {

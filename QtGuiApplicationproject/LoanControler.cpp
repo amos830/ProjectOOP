@@ -84,6 +84,7 @@ bool LoanControl::BorrowItems(std::vector<std::string> list)
 	for each (std::string item in list) {
 		BorrowItem(item);
 	}
+
 	return 0;
 }
 
@@ -91,7 +92,7 @@ void LoanControl::ReturnItem(string id, string name) {
 	findLoanRecordItem(id, name)->setReturnDate();
 	findLoanRecordItem(id, name)->setStatus("in");
 	findEquipmentByID(id)->setStatus("in");
-
+	//CurrentUser.
 }
 
 bool LoanControl::compareLoanRecords(LoanRecord loan1, LoanRecord loan2) //comparator

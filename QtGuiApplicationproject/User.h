@@ -20,6 +20,8 @@ public:
 		string getAddress();
 		string getSection();
 		int getQuota();
+		void borrowItem();
+		void returnItem();
 		virtual int getMaxAmountOfItems() = 0;
 };
 class Scout
