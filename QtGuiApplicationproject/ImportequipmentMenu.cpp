@@ -45,6 +45,11 @@ void ImportequipmentMenu::selectFile(){
 	QString s = QFileDialog::getOpenFileName(this, tr("Open"), "/", "TXT files(*txt)");
 	DisplayFile->setText(s);
 }
+void ImportUserMenu::selectFile() {
+	QString s = QFileDialog::getOpenFileName(this, tr("Open"), "/", "TXT files(*txt)");
+	DisplayFile->setText(s);
+}
+
 
 ImportUserMenu::~ImportUserMenu()
 {
@@ -77,4 +82,10 @@ void ImportUserMenu::importEquipment()
 			Error.exec();
 			FileHandiler::fileRead(Parent->loanControler->UserList, Parent->loanControler->NoOfUsers, Parent->loanControler);
 		}
+}
+ImportUserMenu::ImportUserMenu(QWidget *parent)
+	: QDialog(parent)
+{
+	setupUi(this);
+	setAcceptDrops(true);
 }
