@@ -60,6 +60,11 @@ string Equipment::getStatus()
 	return status;
 }
 
+void Equipment::setStatus(string status)
+{
+	this->status = status;
+}
+
 bool Equipment::borrowItem()
 {
 	return false;

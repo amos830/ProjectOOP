@@ -22,6 +22,7 @@ public:
 	string getDateOfPurchase();
 	string getCondition();
 	string getStatus();
+	void setStatus(string status);
 	bool borrowItem();
 	bool returnItem();
 	string getItemType();

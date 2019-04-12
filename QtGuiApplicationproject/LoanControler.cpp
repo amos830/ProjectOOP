@@ -62,12 +62,12 @@ bool LoanControl::BorrowItem(string id)
 	records->push_back(LoanRecord(name, nameOfBorrower, id));
 	return 0;
 }
-LoanRecord LoanControl::findLoanRecordItem(string ID,string name)
+LoanRecord* LoanControl::findLoanRecordItem(string ID,string name)
 {
 	for (LoanRecord &record : *records)
-		if (record.getId() == ID && record.getNameOfBorrower() == name)
-			return record;
-	return LoanRecord(NULL,NULL,NULL);
+		if (record.getId() == ID && record.getNameOfBorrower() == name && record.getStatus()=="out")
+			return &record;
+	return nullptr;
 }
 
 Equipment* LoanControl::findEquipmentByID(string ID) {
@@ -85,6 +85,13 @@ bool LoanControl::BorrowItems(std::vector<std::string> list)
 		BorrowItem(item);
 	}
 	return 0;
+}
+
+void LoanControl::ReturnItem(string id, string name) {
+	findLoanRecordItem(id, name)->setReturnDate();
+	findLoanRecordItem(id, name)->setStatus("in");
+	findEquipmentByID(id)->setStatus("in");
+
 }
 
 bool LoanControl::compareLoanRecords(LoanRecord loan1, LoanRecord loan2) //comparator
