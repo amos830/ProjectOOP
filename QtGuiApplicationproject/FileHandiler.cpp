@@ -1,4 +1,4 @@
-#include "FileHandiler.h"
+ #include "FileHandiler.h"
 #include "QtloginWindow.h"
 #include "LoanControler.h"
 #include <fstream>
@@ -156,6 +156,18 @@ void FileHandiler::fileWrite(Equipment **& List, int & Num, LoanControl * loanCo
 
 int FileHandiler::fileWrite(string fileLocation, Equipment **& List, int & Num, LoanControl * loanControler)
 {
+	fstream TargetFile(fileLocation, std::ofstream::out);
+	for (int ii = 0; ii < Num; ii++) {
+		if (loanControler->EquipmentList[ii]->getType() == "tent")
+			TargetFile << ((Tent*)(loanControler->EquipmentList[ii]))->getItemID() << "|" << ((Tent*)(loanControler->EquipmentList[ii]))->getName() << "|" << ((Tent*)(loanControler->EquipmentList[ii]))->getBrand() << "|" << "tent" << "|" << ((Tent*)(loanControler->EquipmentList[ii]))->getDateOfPurchase() << "|" << ((Tent*)(loanControler->EquipmentList[ii]))->getCondition() << "|" << ((Tent*)(loanControler->EquipmentList[ii]))->getStatus() << "|"
+			<< ((Tent*)(loanControler->EquipmentList[ii]))->getNoOfPeople() << "|" << ((Tent*)(loanControler->EquipmentList[ii]))->getItemType() << "|" << ((Tent*)(loanControler->EquipmentList[ii]))->getNoOfDoor() << "|" << ((Tent*)(loanControler->EquipmentList[ii]))->getDoubleLayer() << "|" << ((Tent*)(loanControler->EquipmentList[ii]))->getColor() << "/n";
+		if (loanControler->EquipmentList[ii]->getType() == "stove")
+			TargetFile << ((Stove*)(loanControler->EquipmentList[ii]))->getItemID() << "|" << ((Stove*)(loanControler->EquipmentList[ii]))->getName() << "|" << ((Stove*)(loanControler->EquipmentList[ii]))->getBrand() << "|" << "stove" << "|" << ((Stove*)(loanControler->EquipmentList[ii]))->getDateOfPurchase() << "|" << ((Stove*)(loanControler->EquipmentList[ii]))->getCondition() << "|" << ((Stove*)(loanControler->EquipmentList[ii]))->getStatus() << "|"
+			<< ((Stove*)(loanControler->EquipmentList[ii]))->getItemType() << ((Stove*)(loanControler->EquipmentList[ii]))->getFuelType() << "/n";
+		if (loanControler->EquipmentList[ii]->getType() == "lantern")
+			TargetFile << ((Lantern*)(loanControler->EquipmentList[ii]))->getItemID() << "|" << ((Lantern*)(loanControler->EquipmentList[ii]))->getName() << "|" << ((Lantern*)(loanControler->EquipmentList[ii]))->getBrand() << "|" << "lantern" << "|" << ((Lantern*)(loanControler->EquipmentList[ii]))->getDateOfPurchase() << "|" << ((Lantern*)(loanControler->EquipmentList[ii]))->getCondition() << "|" << ((Lantern*)(loanControler->EquipmentList[ii]))->getStatus() << "|"
+			<< ((Lantern*)(loanControler->EquipmentList[ii]))->getLanternSize() << ((Lantern*)(loanControler->EquipmentList[ii]))->getItemType() << ((Lantern*)(loanControler->EquipmentList[ii]))->getFuelType() <<"/n";
+	}
 	return 0;
 }
 
