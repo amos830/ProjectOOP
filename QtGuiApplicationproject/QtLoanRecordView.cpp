@@ -37,7 +37,7 @@ void QtLoanRecordView::updateTable(bool admin) {
 		}
 	}
 	else {
-		int j;
+		int j=0;
 		for (int i = 0; i < controller->records.size(); i++)
 			if (controller->records.at(i).getName() == controller->CurrentUser->getName() && controller->records.at(i).getStatus() == "out");
 		j++;

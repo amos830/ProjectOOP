@@ -32,10 +32,9 @@ public:
     QSpacerItem *verticalSpacer_3;
     QSpacerItem *verticalSpacer;
     QGridLayout *gridLayout;
-    QSpacerItem *horizontalSpacer;
     QPushButton *LoanRecord;
-    QPushButton *pushButton_3;
     QPushButton *ListOfEquipment;
+    QSpacerItem *horizontalSpacer;
     QGridLayout *gridLayout_2;
     QPushButton *LogoutButton;
     QSpacerItem *horizontalSpacer_3;
@@ -80,24 +79,19 @@ public:
         gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer, 0, 1, 1, 1);
-
         LoanRecord = new QPushButton(centralWidget);
         LoanRecord->setObjectName(QString::fromUtf8("LoanRecord"));
 
         gridLayout->addWidget(LoanRecord, 1, 0, 1, 1);
 
-        pushButton_3 = new QPushButton(centralWidget);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-
-        gridLayout->addWidget(pushButton_3, 2, 0, 1, 1);
-
         ListOfEquipment = new QPushButton(centralWidget);
         ListOfEquipment->setObjectName(QString::fromUtf8("ListOfEquipment"));
 
         gridLayout->addWidget(ListOfEquipment, 0, 0, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 0, 1, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout);
@@ -157,7 +151,6 @@ public:
         Title->setText(QApplication::translate("ProjectClass", "Scout System", nullptr));
         Welcome->setText(QApplication::translate("ProjectClass", "Welcome", nullptr));
         LoanRecord->setText(QApplication::translate("ProjectClass", "List Loan Records", nullptr));
-        pushButton_3->setText(QApplication::translate("ProjectClass", "Test 3", nullptr));
         ListOfEquipment->setText(QApplication::translate("ProjectClass", "List Of Equipment", nullptr));
         LogoutButton->setText(QApplication::translate("ProjectClass", "Log Out", nullptr));
         ExitButton->setText(QApplication::translate("ProjectClass", "Exit", nullptr));

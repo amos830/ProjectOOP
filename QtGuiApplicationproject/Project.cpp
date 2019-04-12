@@ -17,6 +17,7 @@ void Project::displayLoanRecord()
 {
 	hide();
 	QtLoanRecordView test(this);
+	test.initialize(loanControl, false);
 	test.exec();
 	show();
 }
