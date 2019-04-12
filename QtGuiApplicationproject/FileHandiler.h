@@ -4,6 +4,7 @@
 #include "User.h"
 #include "Equipment.h"
 #include "LoanRecord.h"
+#include <memory>
 using std::string;
 class LoanControl;
 class FileHandiler
