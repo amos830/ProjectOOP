@@ -1,6 +1,7 @@
  #include "FileHandiler.h"
 #include "QtloginWindow.h"
 #include "LoanControler.h"
+#include "LoanRecord.h"
 #include <fstream>
 #include "ErrorAlert.h"
 #include <QCoreApplication>
@@ -187,6 +188,15 @@ void FileHandiler::fileWrite(std::vector<LoanRecord> List)
 
 void FileHandiler::fileWrite(std::vector<LoanRecord> List, string filelocation)
 {
+	fstream TargetFile(filelocation, std::ofstream::out);
+	for (int ii = 0; ii, List.size(); ii++) {
+			TargetFile << List.at(ii).getReturnDate() << "|"
+			<< List.at(ii).getLoanDate() << "|"
+			<< List.at(ii).getId() << "|"
+			<< List.at(ii).getName() << "|"
+			<< List.at(ii).getStatus() << "|"
+			<< List.at(ii).getNameOfBorrower() << "/n";
+	}
 }
 
 int FileHandiler::fileWrite(std::shared_ptr<LoanRecord> List, string fileLocation)
