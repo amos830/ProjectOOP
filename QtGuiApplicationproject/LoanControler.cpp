@@ -59,12 +59,12 @@ bool LoanControl::BorrowItem(string id)
 	Equipment* item = get1Equipment(id);
 	string name = item->getName();
 	string nameOfBorrower = CurrentUser->getName();
-	records->push_back(LoanRecord(name, nameOfBorrower, id));
+	records.push_back(LoanRecord(name, nameOfBorrower, id));
 	return 0;
 }
 LoanRecord* LoanControl::findLoanRecordItem(string ID,string name)
 {
-	for (LoanRecord &record : *records)
+	for (LoanRecord &record : records)
 		if (record.getId() == ID && record.getNameOfBorrower() == name && record.getStatus()=="out")
 			return &record;
 	return nullptr;

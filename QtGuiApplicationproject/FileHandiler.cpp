@@ -208,7 +208,7 @@ int FileHandiler::fileWrite(std::shared_ptr<LoanRecord> List, string fileLocatio
 void FileHandiler::fileRead(LoanControl* loancontroler)
 {
 	fstream TargetFile("loanrecord.txt", std::ifstream::in);
-	(loancontroler->records)->clear();
+	(loancontroler->records).clear();
 
 	int Num = 0;
 	string temp;
@@ -239,7 +239,7 @@ void FileHandiler::fileRead(LoanControl* loancontroler)
 				temp.erase(0, temp.find("|") + 1);
 				string status(temp.substr(0, temp.find("|")));
 				temp.erase(0, temp.find("|") + 1);
-				loancontroler->records->push_back(LoanRecord(name, temp, id, returnDate, loanDate, status));
+				loancontroler->records.push_back(LoanRecord(name, temp, id, returnDate, loanDate, status));
 			}
 		}
 	}
