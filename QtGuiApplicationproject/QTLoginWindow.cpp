@@ -22,6 +22,7 @@ void QTLoginWindow::reset()
 {
 	ui.UserNameInput->setText("");
 	ui.PasswordInput->setText("");
+	ui.PasswordInput->setEchoMode(QLineEdit::Password);
 	ui.Error->setText("");
 	ui.UserNameInput->setFocus();
 	setTabOrder(ui.UserNameInput, ui.PasswordInput);

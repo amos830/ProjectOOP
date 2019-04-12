@@ -14,6 +14,6 @@ void QtLoanRecordView::initialize(LoanControl* arg,bool admin) {
 
 }
 
-void QtLoanRecordView::updateTable(LoanControl* arg, bool admin) {
+void QtLoanRecordView::updateTable(bool admin) {
 
 }

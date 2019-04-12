@@ -12,5 +12,5 @@ public:
 	QtLoanRecordView(QWidget *parent = Q_NULLPTR);
 	~QtLoanRecordView();
 	void initialize(LoanControl* arg,bool admin);
-	void updateTable(LoanControl * arg, bool admin);
+	void updateTable(bool admin);
 };
