@@ -12,5 +12,5 @@ public:
 	void initialize(LoanControl * arg);
 	LoanControl* control;
 public slots:
-	void export(QString test);
+	void exports(QString test);
 };

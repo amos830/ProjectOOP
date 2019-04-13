@@ -2,6 +2,8 @@
 #include "QtItemMenu.h"
 #include "ImportequipmentMenu.h"
 #include "QtLoanRecordView.h"
+#include "exportEquipmentFile.h"
+#include "ExportFileDialog.h"
 QtAdminMenu::QtAdminMenu(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -117,11 +119,17 @@ void QtAdminMenu::importCampEquipment()
 
 void QtAdminMenu::exportCampEquipment()
 {
+	exportEquipmentFile finally(this);
+	finally.initialize(loanControler);
+	finally.exec();
 	Layout[x][y]->setFocus();
 }
 
 void QtAdminMenu::exportLoanRecords()
 {
+	ExportFileDialog finally(this);
+	finally.initialize(loanControler);
+	finally.exec();
 	Layout[x][y]->setFocus();
 }
 

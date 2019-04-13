@@ -25,4 +25,7 @@
  </customwidgets>
  <resources/>
  <connections/>
+ <slots>
+  <slot>exports(Qstring)</slot>
+ </slots>
 </ui>
