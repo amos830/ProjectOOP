@@ -14,10 +14,8 @@ exportEquipmentFile::~exportEquipmentFile()
 }
 void exportEquipmentFile::initialize(LoanControl* arg) {
 	control = arg;
-	connect(this, SIGNAL(directoryEntered(QString)), this, SLOT(exports(QString)));
+	test3=getExistingDirectory(this, tr("Choose the directory to store the Equipment File"), "/");
+	std::string tests = test3.toStdString() + string("\\") + string("camp_equipment.txt");
+	FileHandiler::fileWrite(tests, control->EquipmentList, control->NoOfEquipments, control);
 }
 
-void exportEquipmentFile::exports(QString test) {
-	std::string tests = test.toStdString() + string("\\") + string("camp_equipment.txt");
-	FileHandiler::fileWrite(tests,control->EquipmentList,control->NoOfEquipments,control);
-}

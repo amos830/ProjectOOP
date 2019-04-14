@@ -4,10 +4,15 @@
 #include <QTimer>
 #include <QThread>
 #include <QKeyEvent>
+#include <QFont>
 QTLoginWindow::QTLoginWindow(QWidget *parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
+	QFont size(ui.TitleText->font());
+	size.setPointSize(10);
+	size.setBold(1);
+	ui.TitleText->setFont(size);
 	reset();
 }
 QTLoginWindow::~QTLoginWindow()

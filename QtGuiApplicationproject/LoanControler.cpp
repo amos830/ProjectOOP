@@ -8,7 +8,8 @@ LoanControl::LoanControl()
 	FileHandiler::fileRead(EquipmentList, NoOfEquipments, this);
 	FileHandiler::fileRead(UserList, NoOfUsers, this);
 	FileHandiler::fileRead(this);
-	//std::sort(records.begin(), records.end(), LoanControl::compareLoanRecords);
+	if(!records.empty())
+		std::sort(records.begin(), records.end(), LoanControl::compareLoanRecords);
 	CurrentUser = nullptr;
 }
 
@@ -103,7 +104,7 @@ int LoanControl::amountBorrowed()
 {
 	int result = 0;
 	for (int i = 0; i < records.size(); i++)
-		if (records.at(i).getName() == CurrentUser->getName() && records.at(i).getStatus() == "out")
+		if (records.at(i).getNameOfBorrower() == CurrentUser->getName() && records.at(i).getStatus() == "out")
 			result++;
 	return result;
 }

@@ -2,8 +2,7 @@
 #include "QtItemMenu.h"
 #include "ImportequipmentMenu.h"
 #include "QtLoanRecordView.h"
-#include "exportEquipmentFile.h"
-#include "ExportFileDialog.h"
+#include <QFileDialog>
 QtAdminMenu::QtAdminMenu(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -119,17 +118,13 @@ void QtAdminMenu::importCampEquipment()
 
 void QtAdminMenu::exportCampEquipment()
 {
-	exportEquipmentFile finally(this);
-	finally.initialize(loanControler);
-	finally.exec();
+	FileHandiler::fileWrite(QFileDialog::getExistingDirectory(this, tr("Choose the directory to store the Equipment File"), "/").toStdString()+"\\"+"camp_equipment.txt", loanControler->EquipmentList, loanControler->NoOfEquipments, loanControler);
 	Layout[x][y]->setFocus();
 }
 
 void QtAdminMenu::exportLoanRecords()
 {
-	ExportFileDialog finally(this);
-	finally.initialize(loanControler);
-	finally.exec();
+	FileHandiler::fileWrite(loanControler->records, QFileDialog::getExistingDirectory(this, tr("Choose the directory to store the Loan Records"), "/").toStdString() + "\\" + "loanrecord.txt");
 	Layout[x][y]->setFocus();
 }
 

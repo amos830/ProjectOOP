@@ -1,6 +1,7 @@
 #include "BorrowDialog.h"
 #include "LoanControler.h"
 #include "ErrorAlert.h"
+#include <QDate>
 BorrowDialog::BorrowDialog(QWidget *parent)
 	: QDialog(parent)
 {
@@ -39,7 +40,7 @@ void BorrowDialog::updateTable() {
 		tentTable->setItem(i, 5, new QStandardItem(QString::number(((Tent*)(tents[i]))->getNoOfDoor())));
 		tentTable->setItem(i, 6, new QStandardItem(((Tent*)(tents[i]))->getDoubleLayer() ? QString("Yes") : QString("No")));
 		tentTable->setItem(i, 7, new QStandardItem(QString::fromStdString(((Tent*)(tents[i]))->getColor())));
-		tentTable->setItem(i, 8, new QStandardItem(QString::fromStdString(tents[i]->getDateOfPurchase())));
+		tentTable->setItem(i, 8, new QStandardItem(QDate::fromString(QString::fromStdString(tents[i]->getDateOfPurchase()), "ddMMyyyy").toString("dd.MM.yyyy")));
 	}
 	tentTableView->setModel(tentTable);
 	tentTableView->horizontalHeader()->setStretchLastSection(true);
@@ -64,7 +65,7 @@ void BorrowDialog::updateTable() {
 		stoveTable->setItem(i, 2, new QStandardItem(QString::fromStdString(stoves[i]->getBrand())));
 		stoveTable->setItem(i, 3, new QStandardItem(QString::fromStdString(((Stove*)(stoves[i]))->getItemType())));
 		stoveTable->setItem(i, 4, new QStandardItem(QString::fromStdString(((Stove*)(stoves[i]))->getFuelType())));
-		stoveTable->setItem(i, 5, new QStandardItem(QString::fromStdString(stoves[i]->getDateOfPurchase())));
+		stoveTable->setItem(i, 5, new QStandardItem(QDate::fromString(QString::fromStdString(stoves[i]->getDateOfPurchase()), "ddMMyyyy").toString("dd.MM.yyyy")));
 
 	}
 	StoveTableView->setModel(stoveTable);
@@ -92,7 +93,7 @@ void BorrowDialog::updateTable() {
 		lanternTable->setItem(i, 3, new QStandardItem(QString::fromStdString(((Lantern*)(lanterns[i]))->getItemType())));
 		lanternTable->setItem(i, 4, new QStandardItem(QString::fromStdString(((Lantern*)(lanterns[i]))->getFuelType())));
 		lanternTable->setItem(i, 5, new QStandardItem(QString::fromStdString(((Lantern*)(lanterns[i]))->getLanternSize())));
-		lanternTable->setItem(i, 6, new QStandardItem(QString::fromStdString(lanterns[i]->getDateOfPurchase())));
+		lanternTable->setItem(i, 6, new QStandardItem(QDate::fromString(QString::fromStdString(lanterns[i]->getDateOfPurchase()), "ddMMyyyy").toString("dd.MM.yyyy")));
 	}
 	LanternTableView->setModel(lanternTable);
 	LanternTableView->horizontalHeader()->setStretchLastSection(true);
@@ -111,6 +112,7 @@ void BorrowDialog::updateTable() {
 		if(loanController->records.at(i).getStatus()=="out"&&loanController->records.at(i).getNameOfBorrower()==loanController->CurrentUser->getName())
 			BorrowedList->addItem(QString::fromStdString(loanController->records.at(i).getId()));
 	BorrowedList->setSelectionMode(QAbstractItemView::MultiSelection);
+	QuotaCount->setText("You Can Borrow " + QString::number(loanController->CurrentUser->getQuota())+ " more items");
 }
 void BorrowDialog::borrowList() {
 	for each (QListWidgetItem *code in AvalibleLIst->selectedItems())
@@ -144,7 +146,13 @@ void BorrowDialog::confirm()
 	for (int i = 0; i < BorrowedList->count(); i++)
 		if (BorrowedList->item(i)->foreground() == Qt::red)
 			list.push_back(BorrowedList->item(i)->text().toStdString());
-	if (loanController->BorrowItems(list))
+	if (loanController->amountBorrowed() != loanController->CurrentUser->getQuota())
+		{
+			ErrorAlert test(this);
+			test.initialize(false, "Please Return All Items Before Borrowing again", nullptr);
+			test.exec();
+		}
+	else if (loanController->BorrowItems(list))
 	{
 		ErrorAlert test(this);
 		test.initialize(false, "Number Of Item borrowed Exceed Quota,Please Select Again", nullptr);

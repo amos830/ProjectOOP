@@ -11,6 +11,5 @@ public:
 	~exportEquipmentFile();
 	void initialize(LoanControl * arg);
 	LoanControl* control;
-public slots:
-	void exports(QString test);
+	QString test3;
 };

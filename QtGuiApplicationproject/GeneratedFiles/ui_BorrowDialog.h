@@ -29,19 +29,10 @@ QT_BEGIN_NAMESPACE
 class Ui_BorrowDialog
 {
 public:
+    QGridLayout *gridLayout_3;
     QHBoxLayout *horizontalLayout;
-    QVBoxLayout *verticalLayout;
     QLabel *ListTitle;
-    QTabWidget *tabWidget;
-    QWidget *TentTab;
-    QVBoxLayout *verticalLayout_3;
-    QTableView *tentTableView;
-    QWidget *StoveTab;
-    QVBoxLayout *verticalLayout_4;
-    QTableView *StoveTableView;
-    QWidget *LanternTab;
-    QVBoxLayout *verticalLayout_5;
-    QTableView *LanternTableView;
+    QLabel *QuotaCount;
     QGridLayout *gridLayout;
     QListWidget *BorrowedList;
     QLabel *label_2;
@@ -58,75 +49,49 @@ public:
     QSpacerItem *verticalSpacer_5;
     QPushButton *Reset;
     QLabel *label;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_2;
+    QTabWidget *tabWidget;
+    QWidget *TentTab;
+    QVBoxLayout *verticalLayout_3;
+    QTableView *tentTableView;
+    QWidget *StoveTab;
+    QVBoxLayout *verticalLayout_4;
+    QTableView *StoveTableView;
+    QWidget *LanternTab;
+    QVBoxLayout *verticalLayout_5;
+    QTableView *LanternTableView;
 
     void setupUi(QDialog *BorrowDialog)
     {
         if (BorrowDialog->objectName().isEmpty())
             BorrowDialog->setObjectName(QString::fromUtf8("BorrowDialog"));
         BorrowDialog->resize(997, 650);
-        horizontalLayout = new QHBoxLayout(BorrowDialog);
+        gridLayout_3 = new QGridLayout(BorrowDialog);
+        gridLayout_3->setSpacing(6);
+        gridLayout_3->setContentsMargins(11, 11, 11, 11);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        gridLayout_3->setHorizontalSpacing(5);
+        gridLayout_3->setVerticalSpacing(0);
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setSpacing(6);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         ListTitle = new QLabel(BorrowDialog);
         ListTitle->setObjectName(QString::fromUtf8("ListTitle"));
 
-        verticalLayout->addWidget(ListTitle);
+        horizontalLayout->addWidget(ListTitle);
 
-        tabWidget = new QTabWidget(BorrowDialog);
-        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setContextMenuPolicy(Qt::DefaultContextMenu);
-        TentTab = new QWidget();
-        TentTab->setObjectName(QString::fromUtf8("TentTab"));
-        verticalLayout_3 = new QVBoxLayout(TentTab);
-        verticalLayout_3->setSpacing(6);
-        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        tentTableView = new QTableView(TentTab);
-        tentTableView->setObjectName(QString::fromUtf8("tentTableView"));
+        QuotaCount = new QLabel(BorrowDialog);
+        QuotaCount->setObjectName(QString::fromUtf8("QuotaCount"));
+        QuotaCount->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        verticalLayout_3->addWidget(tentTableView);
-
-        tabWidget->addTab(TentTab, QString());
-        StoveTab = new QWidget();
-        StoveTab->setObjectName(QString::fromUtf8("StoveTab"));
-        verticalLayout_4 = new QVBoxLayout(StoveTab);
-        verticalLayout_4->setSpacing(6);
-        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
-        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        StoveTableView = new QTableView(StoveTab);
-        StoveTableView->setObjectName(QString::fromUtf8("StoveTableView"));
-
-        verticalLayout_4->addWidget(StoveTableView);
-
-        tabWidget->addTab(StoveTab, QString());
-        LanternTab = new QWidget();
-        LanternTab->setObjectName(QString::fromUtf8("LanternTab"));
-        verticalLayout_5 = new QVBoxLayout(LanternTab);
-        verticalLayout_5->setSpacing(6);
-        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        LanternTableView = new QTableView(LanternTab);
-        LanternTableView->setObjectName(QString::fromUtf8("LanternTableView"));
-        LanternTableView->setContextMenuPolicy(Qt::DefaultContextMenu);
-
-        verticalLayout_5->addWidget(LanternTableView);
-
-        tabWidget->addTab(LanternTab, QString());
-
-        verticalLayout->addWidget(tabWidget);
+        horizontalLayout->addWidget(QuotaCount);
 
 
-        horizontalLayout->addLayout(verticalLayout);
+        gridLayout_3->addLayout(horizontalLayout, 0, 0, 1, 1);
 
         gridLayout = new QGridLayout();
-        gridLayout->setSpacing(6);
+        gridLayout->setSpacing(0);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         BorrowedList = new QListWidget(BorrowDialog);
         BorrowedList->setObjectName(QString::fromUtf8("BorrowedList"));
@@ -209,10 +174,68 @@ public:
         gridLayout->addWidget(label, 0, 0, 1, 2);
 
 
-        horizontalLayout->addLayout(gridLayout);
+        gridLayout_3->addLayout(gridLayout, 0, 1, 2, 1);
 
-        horizontalLayout->setStretch(0, 30);
-        horizontalLayout->setStretch(1, 3);
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
+        tabWidget = new QTabWidget(BorrowDialog);
+        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tabWidget->setContextMenuPolicy(Qt::DefaultContextMenu);
+        TentTab = new QWidget();
+        TentTab->setObjectName(QString::fromUtf8("TentTab"));
+        verticalLayout_3 = new QVBoxLayout(TentTab);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        tentTableView = new QTableView(TentTab);
+        tentTableView->setObjectName(QString::fromUtf8("tentTableView"));
+
+        verticalLayout_3->addWidget(tentTableView);
+
+        tabWidget->addTab(TentTab, QString());
+        StoveTab = new QWidget();
+        StoveTab->setObjectName(QString::fromUtf8("StoveTab"));
+        verticalLayout_4 = new QVBoxLayout(StoveTab);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
+        StoveTableView = new QTableView(StoveTab);
+        StoveTableView->setObjectName(QString::fromUtf8("StoveTableView"));
+
+        verticalLayout_4->addWidget(StoveTableView);
+
+        tabWidget->addTab(StoveTab, QString());
+        LanternTab = new QWidget();
+        LanternTab->setObjectName(QString::fromUtf8("LanternTab"));
+        verticalLayout_5 = new QVBoxLayout(LanternTab);
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
+        LanternTableView = new QTableView(LanternTab);
+        LanternTableView->setObjectName(QString::fromUtf8("LanternTableView"));
+        LanternTableView->setContextMenuPolicy(Qt::DefaultContextMenu);
+
+        verticalLayout_5->addWidget(LanternTableView);
+
+        tabWidget->addTab(LanternTab, QString());
+
+        verticalLayout->addWidget(tabWidget);
+
+
+        gridLayout_3->addLayout(verticalLayout, 1, 0, 1, 1);
+
+        gridLayout_3->setColumnStretch(0, 2);
+        gridLayout_3->setColumnStretch(1, 1);
 
         retranslateUi(BorrowDialog);
         QObject::connect(Exit, SIGNAL(clicked()), BorrowDialog, SLOT(hide()));
@@ -231,9 +254,7 @@ public:
     {
         BorrowDialog->setWindowTitle(QApplication::translate("BorrowDialog", "BorrowDialog", nullptr));
         ListTitle->setText(QApplication::translate("BorrowDialog", "List Of Avaliable Equipment", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(TentTab), QApplication::translate("BorrowDialog", "Tent", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(StoveTab), QApplication::translate("BorrowDialog", "Stove", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(LanternTab), QApplication::translate("BorrowDialog", "Lantern", nullptr));
+        QuotaCount->setText(QApplication::translate("BorrowDialog", "TextLabel", nullptr));
         label_2->setText(QApplication::translate("BorrowDialog", "Borrowed Equipment", nullptr));
         ConfirmButton->setText(QApplication::translate("BorrowDialog", "Confirm", nullptr));
         Left->setText(QApplication::translate("BorrowDialog", "<", nullptr));
@@ -241,6 +262,9 @@ public:
         Right->setText(QApplication::translate("BorrowDialog", ">", nullptr));
         Reset->setText(QApplication::translate("BorrowDialog", "Reset", nullptr));
         label->setText(QApplication::translate("BorrowDialog", "Avaliable Equipments", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(TentTab), QApplication::translate("BorrowDialog", "Tent", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(StoveTab), QApplication::translate("BorrowDialog", "Stove", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(LanternTab), QApplication::translate("BorrowDialog", "Lantern", nullptr));
     } // retranslateUi
 
 };

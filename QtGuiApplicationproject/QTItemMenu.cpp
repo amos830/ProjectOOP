@@ -37,7 +37,7 @@ void QTItemMenu::updateTable()
 		tentTable->setItem(i, 0, new QStandardItem(QString::fromStdString(tents[i]->getItemID())));
 		tentTable->setItem(i, 1, new QStandardItem(QString::fromStdString(tents[i]->getName())));
 		tentTable->setItem(i, 2, new QStandardItem(QString::fromStdString(tents[i]->getBrand())));
-		tentTable->setItem(i, 3, new QStandardItem(QDate::fromString(QString::fromStdString(tents[i]->getDateOfPurchase()),"ddMMyyyy").toString("dd-MM-yyyy")));
+		tentTable->setItem(i, 3, new QStandardItem(QDate::fromString(QString::fromStdString(tents[i]->getDateOfPurchase()),"ddMMyyyy").toString("dd.MM.yyyy")));
 		tentTable->setItem(i, 4, new QStandardItem(QString::fromStdString(tents[i]->getCondition())));
 		tentTable->setItem(i, 5, new QStandardItem(QString::fromStdString(tents[i]->getStatus())));
 		tentTable->setItem(i, 6, new QStandardItem(QString::number(((Tent*)(tents[i]))->getNoOfPeople())));
@@ -67,7 +67,7 @@ void QTItemMenu::updateTable()
 		stoveTable->setItem(i, 0, new QStandardItem(QString::fromStdString(stoves[i]->getItemID())));
 		stoveTable->setItem(i, 1, new QStandardItem(QString::fromStdString(stoves[i]->getName())));
 		stoveTable->setItem(i, 2, new QStandardItem(QString::fromStdString(stoves[i]->getBrand())));
-		stoveTable->setItem(i, 3, new QStandardItem(QDate::fromString(QString::fromStdString(stoves[i]->getDateOfPurchase()), "ddMMyyyy").toString("dd-MM-yyyy")));
+		stoveTable->setItem(i, 3, new QStandardItem(QDate::fromString(QString::fromStdString(stoves[i]->getDateOfPurchase()), "ddMMyyyy").toString("dd.MM.yyyy")));
 		stoveTable->setItem(i, 4, new QStandardItem(QString::fromStdString(stoves[i]->getCondition())));
 		stoveTable->setItem(i, 5, new QStandardItem(QString::fromStdString(stoves[i]->getStatus())));
 		stoveTable->setItem(i, 6, new QStandardItem(QString::fromStdString(((Stove*)(stoves[i]))->getItemType())));
@@ -96,7 +96,7 @@ void QTItemMenu::updateTable()
 		lanternTable->setItem(i, 0, new QStandardItem(QString::fromStdString(lanterns[i]->getItemID())));
 		lanternTable->setItem(i, 1, new QStandardItem(QString::fromStdString(lanterns[i]->getName())));
 		lanternTable->setItem(i, 2, new QStandardItem(QString::fromStdString(lanterns[i]->getBrand())));
-		lanternTable->setItem(i, 3, new QStandardItem(QDate::fromString(QString::fromStdString(lanterns[i]->getDateOfPurchase()),"ddMMyyyy").toString("dd-MM-yyyy")));
+		lanternTable->setItem(i, 3, new QStandardItem(QDate::fromString(QString::fromStdString(lanterns[i]->getDateOfPurchase()),"ddMMyyyy").toString("dd.MM.yyyy")));
 		lanternTable->setItem(i, 4, new QStandardItem(QString::fromStdString(lanterns[i]->getCondition())));
 		lanternTable->setItem(i, 5, new QStandardItem(QString::fromStdString(lanterns[i]->getStatus())));
 		lanternTable->setItem(i, 6, new QStandardItem(QString::fromStdString(((Lantern*)(lanterns[i]))->getItemType())));

@@ -36,7 +36,7 @@ string LoanRecord::getNameOfBorrower()
 
 void LoanRecord::setReturnDate()
 {
-	QString temp = QDate::currentDate().toString("dd.MM.yyyy");
+	QString temp = (QDate::currentDate().toString("dd.MM.yyyy"));
 
 	returnDate = temp.toStdString();
 }
@@ -55,7 +55,8 @@ LoanRecord::LoanRecord(string name, string nameOfBorrower, string id)
 	this->name = name;
 	this->nameOfBorrower = nameOfBorrower;
 	this -> id = id;
-	returnDate = "";
+	temp= (QDate::currentDate().addDays(14).toString("dd.MM.yyyy"));
+	returnDate = "Due :" + temp.toStdString();
 	status = "out";
 
 }
